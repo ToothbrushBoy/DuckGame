@@ -22,9 +22,116 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     {
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""Controls"",
-    ""maps"": [],
+    ""maps"": [
+        {
+            ""name"": ""duck"",
+            ""id"": ""3a28bf1d-5d94-4e37-a044-c6768003c086"",
+            ""actions"": [
+                {
+                    ""name"": ""movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""f4f9b2b1-9cdc-492c-9461-df7349117fb6"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""cce948e9-1017-485a-bcb4-823f16f6e0fd"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""f188daf3-5db9-42f9-a4af-cdadd6a3f82e"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b3ebe68b-0c4d-46ae-8e84-f1729bfcc7d6"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""270cfc47-45d3-4b20-8ab0-1f8b91fa2dfc"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""7044cdf6-9fd3-472c-839d-ab8cf7722de4"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""ui"",
+            ""id"": ""f31808a4-f273-4e7c-a392-9102b4c2d356"",
+            ""actions"": [
+                {
+                    ""name"": ""click"",
+                    ""type"": ""Button"",
+                    ""id"": ""f774c7d7-8539-4b08-bbd9-4aadafc60fc6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""581fafae-8ad5-43c9-a947-ef6b0eca421f"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        }
+    ],
     ""controlSchemes"": []
 }");
+        // duck
+        m_duck = asset.FindActionMap("duck", throwIfNotFound: true);
+        m_duck_movement = m_duck.FindAction("movement", throwIfNotFound: true);
+        // ui
+        m_ui = asset.FindActionMap("ui", throwIfNotFound: true);
+        m_ui_click = m_ui.FindAction("click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -81,5 +188,105 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     public int FindBinding(InputBinding bindingMask, out InputAction action)
     {
         return asset.FindBinding(bindingMask, out action);
+    }
+
+    // duck
+    private readonly InputActionMap m_duck;
+    private List<IDuckActions> m_DuckActionsCallbackInterfaces = new List<IDuckActions>();
+    private readonly InputAction m_duck_movement;
+    public struct DuckActions
+    {
+        private @Controls m_Wrapper;
+        public DuckActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @movement => m_Wrapper.m_duck_movement;
+        public InputActionMap Get() { return m_Wrapper.m_duck; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DuckActions set) { return set.Get(); }
+        public void AddCallbacks(IDuckActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DuckActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DuckActionsCallbackInterfaces.Add(instance);
+            @movement.started += instance.OnMovement;
+            @movement.performed += instance.OnMovement;
+            @movement.canceled += instance.OnMovement;
+        }
+
+        private void UnregisterCallbacks(IDuckActions instance)
+        {
+            @movement.started -= instance.OnMovement;
+            @movement.performed -= instance.OnMovement;
+            @movement.canceled -= instance.OnMovement;
+        }
+
+        public void RemoveCallbacks(IDuckActions instance)
+        {
+            if (m_Wrapper.m_DuckActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDuckActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DuckActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DuckActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DuckActions @duck => new DuckActions(this);
+
+    // ui
+    private readonly InputActionMap m_ui;
+    private List<IUiActions> m_UiActionsCallbackInterfaces = new List<IUiActions>();
+    private readonly InputAction m_ui_click;
+    public struct UiActions
+    {
+        private @Controls m_Wrapper;
+        public UiActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @click => m_Wrapper.m_ui_click;
+        public InputActionMap Get() { return m_Wrapper.m_ui; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UiActions set) { return set.Get(); }
+        public void AddCallbacks(IUiActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UiActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UiActionsCallbackInterfaces.Add(instance);
+            @click.started += instance.OnClick;
+            @click.performed += instance.OnClick;
+            @click.canceled += instance.OnClick;
+        }
+
+        private void UnregisterCallbacks(IUiActions instance)
+        {
+            @click.started -= instance.OnClick;
+            @click.performed -= instance.OnClick;
+            @click.canceled -= instance.OnClick;
+        }
+
+        public void RemoveCallbacks(IUiActions instance)
+        {
+            if (m_Wrapper.m_UiActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUiActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UiActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UiActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UiActions @ui => new UiActions(this);
+    public interface IDuckActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
+    }
+    public interface IUiActions
+    {
+        void OnClick(InputAction.CallbackContext context);
     }
 }
