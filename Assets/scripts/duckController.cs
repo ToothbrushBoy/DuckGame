@@ -6,7 +6,9 @@ using UnityEngine.InputSystem;
 public class duckController : MonoBehaviour
 {
     public Controls _controls;
-
+    public float speedCap;
+    public float acc;
+    public Rigidbody2D rb;
     Vector2 moveDir = Vector2.zero; // normalised vector containing wasd direction
     private InputAction move;
 
@@ -36,5 +38,11 @@ public class duckController : MonoBehaviour
     void Update()
     {
         moveDir = move.ReadValue<Vector2>();
+        rb.AddForce(moveDir * acc);
+        Debug.Log(rb.velocity.magnitude);
+        if(rb.velocity.magnitude > speedCap)
+        {
+            rb.velocity = moveDir * speedCap;
+        }
     }
 }
