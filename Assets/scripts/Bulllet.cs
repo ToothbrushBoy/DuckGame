@@ -13,6 +13,7 @@ public class Bulllet : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
         Vector2 pos = this.transform.position;
+        this.transform.LookAt(target);
         dir = target - pos;
         dir = dir.normalized;
     }
