@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class duckEvents : MonoBehaviour
 {
+    public delegate void Death();
+    public static event Death death;
+
+    public delegate void LevelComplete();
+    public static event LevelComplete levelComplete;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +35,12 @@ public class duckEvents : MonoBehaviour
     void die()
     {
         Debug.Log("died");
+        death?.Invoke();
     }
 
-    void levelComplete()
+    void levelfin()
     {
         Debug.Log("level fin");
+        levelComplete?.Invoke();
     }
 }
