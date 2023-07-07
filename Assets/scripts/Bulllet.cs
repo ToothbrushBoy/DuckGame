@@ -23,7 +23,6 @@ public class Bulllet : MonoBehaviour
         rb.AddForce(dir * speed);
         if (rb.velocity.magnitude > speed)
         {
-            Debug.Log("is");
             rb.velocity = dir * speed;
             
         }
