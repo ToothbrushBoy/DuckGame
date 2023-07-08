@@ -15,7 +15,7 @@ public class FarmerVisualsInterface : MonoBehaviour
 
     public Transform muzzle;
     public GunUpdate gun;
-    private Jacket jacket;
+    [SerializeField] public Jacket jacket;
     public SkinnedMeshRenderer skinnedMeshRenderer;
 
     public Transform aimTarget;
@@ -40,7 +40,7 @@ public class FarmerVisualsInterface : MonoBehaviour
 
     private void Start()
     {
-        SetJacket(Jacket.RIFLE);
+        SetJacket(jacket);
     }
 
     private void Update()

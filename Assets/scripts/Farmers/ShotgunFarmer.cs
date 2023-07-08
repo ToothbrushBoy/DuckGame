@@ -24,6 +24,7 @@ public class ShotgunFarmer : MonoBehaviour
         duck = ducks[ducks.Length - 1];
         bulletSpeed = defaultBulletSpeed * scaling;
         fireRate = defaultFireRate / scaling;
+        GetComponentInChildren<FarmerVisualsInterface>().duck = duck.transform;
     }
 
     private void OnEnable()
