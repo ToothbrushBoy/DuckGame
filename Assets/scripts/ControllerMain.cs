@@ -28,6 +28,8 @@ public class ControllerMain : MonoBehaviour
     public delegate void Reset();
     public static event Reset reset;
     public List<GameObject> farmerTypes;
+    public delegate void FarmerTick();
+    public static event FarmerTick farmerTick;
 
     void Start()
     {
@@ -44,7 +46,20 @@ public class ControllerMain : MonoBehaviour
         scoreText = gameUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
         gameUI = UiInstance.transform.GetChild(1).gameObject;
         farmers = new ArrayList();
+
+        //not working :/
+        StartCoroutine(farmer_tick());
+
         getFarmerSpawnPoints();
+    }
+
+    private IEnumerator farmer_tick()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.25f);
+            farmerTick?.Invoke();
+        }
     }
 
     private void duckFall()
@@ -96,7 +111,7 @@ public class ControllerMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void getFarmerSpawnPoints()
