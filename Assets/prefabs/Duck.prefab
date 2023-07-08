@@ -51,6 +51,7 @@ MonoBehaviour:
   speedCap: 4
   acc: 2
   rb: {fileID: 298835349352571552}
+  animator: {fileID: 7790462879717457577}
 --- !u!50 &298835349352571552
 Rigidbody2D:
   serializedVersion: 4

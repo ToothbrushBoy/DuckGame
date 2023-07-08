@@ -9,6 +9,8 @@ public class duckController : MonoBehaviour
     public float speedCap;
     public float acc;
     public Rigidbody2D rb;
+    public Animator animator;
+
     Vector2 moveDir = Vector2.zero; // normalised vector containing wasd direction
     private InputAction move;
 
@@ -43,5 +45,27 @@ public class duckController : MonoBehaviour
         {
             rb.velocity = moveDir * speedCap;
         }
+
+        if(moveDir.x < 0)
+        {
+            animator.SetBool("left", true);
+        } else
+        {
+            animator.SetBool("left", false);
+        }
+        if(moveDir.y == 0)
+        {
+            animator.SetBool("up", false);
+            animator.SetBool("down", false);
+        } else if (moveDir.y > 0)
+        {
+            animator.SetBool("up", true);
+            animator.SetBool("down", false);
+        } else
+        {
+            animator.SetBool("up", false);
+            animator.SetBool("down", true);
+        }
+
     }
 }
