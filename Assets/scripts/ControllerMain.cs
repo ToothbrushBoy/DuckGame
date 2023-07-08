@@ -50,8 +50,7 @@ public class ControllerMain : MonoBehaviour
     private void levelComplete()
     {
         fade.SetActive(true);
-        score++;
-        killFarmers();
+        
         StartCoroutine(startNext());
 
     }
@@ -59,12 +58,17 @@ public class ControllerMain : MonoBehaviour
     private IEnumerator startNext()
     {
         Debug.Log("waiting");
-        
+        score++;
+        disableFarmers();
         yield return new WaitForSeconds(1f);
+        killFarmers();
         duckInstance.transform.position = duckSpawn;
         scoreText.text = score + "";
-        
         spawnFarmers(score + 1);
+        disableFarmers();
+        yield return new WaitForSeconds(1f);
+        enableFarmers();
+        fade.SetActive(false);
     }
 
     private void playerDied()
