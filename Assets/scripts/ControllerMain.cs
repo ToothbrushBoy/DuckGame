@@ -28,8 +28,8 @@ public class ControllerMain : MonoBehaviour
     public delegate void Reset();
     public static event Reset reset;
     public List<GameObject> farmerTypes;
-    public delegate void FarmerTick();
-    public static event FarmerTick farmerTick;
+    //public delegate void FarmerTick();
+    //public static event FarmerTick farmerTick;
 
     void Start()
     {
@@ -48,19 +48,19 @@ public class ControllerMain : MonoBehaviour
         farmers = new ArrayList();
 
         //not working :/
-        StartCoroutine(farmer_tick());
+        //StartCoroutine(farmer_tick());
 
         getFarmerSpawnPoints();
     }
 
-    private IEnumerator farmer_tick()
+    /*private IEnumerator farmer_tick()
     {
         while (true)
         {
             yield return new WaitForSeconds(0.25f);
             farmerTick?.Invoke();
         }
-    }
+    }*/
 
     private void duckFall()
     {
