@@ -10,6 +10,8 @@ public class Farmer : MonoBehaviour
     public float fireRate;
     public GameObject bulletSpawn;
     public float timer;
+    public float bulletSpeed;
+    public float bulletScale;
     void Start()
     {
         duck = GameObject.FindGameObjectsWithTag("Player")[0];
@@ -28,7 +30,15 @@ public class Farmer : MonoBehaviour
 
     void fire()
     {
+        spawnBullet();
+    }
+
+    void spawnBullet()
+    {
         GameObject firedBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
         firedBullet.GetComponent<Bulllet>().target = duck.transform.position;
+        firedBullet.GetComponent<Bulllet>().rot = Quaternion.identity;
+        firedBullet.GetComponent<Bulllet>().speed = bulletSpeed;
+        firedBullet.transform.localScale = new Vector3(1,1,1) * bulletScale;
     }
 }

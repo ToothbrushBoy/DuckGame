@@ -50,6 +50,8 @@ MonoBehaviour:
   fireRate: 0.5
   bulletSpawn: {fileID: 7148497225812968855}
   timer: 0
+  bulletSpeed: 5
+  bulletScale: 1
 --- !u!1 &7148497225812968855
 GameObject:
   m_ObjectHideFlags: 0

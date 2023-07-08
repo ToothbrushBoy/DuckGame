@@ -10,6 +10,7 @@ public class ControllerMain : MonoBehaviour
     private Vector3 duckSpawn;
     public GameObject duck;
     public GameObject farmer;
+    public GameObject farmerShotgun;
     public GameObject duckSpawnPoint;
     public Canvas UI;
     private Canvas UiInstance;
@@ -65,5 +66,7 @@ public class ControllerMain : MonoBehaviour
         gameUI.SetActive(true);
         duckInstance = Instantiate(duck, duckSpawn, Quaternion.identity);
         farmers.Add(Instantiate(farmer, duckSpawn + new Vector3(2, 0, 0), Quaternion.identity));
+        farmers.Add(Instantiate(farmerShotgun, duckSpawn + new Vector3(4, 0, 0), Quaternion.identity));
+        farmers.Add(Instantiate(farmer, duckSpawn + new Vector3(6, 0, 0), Quaternion.identity));
     }
 }

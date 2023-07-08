@@ -9,6 +9,10 @@ public class ShotgunFarmer : MonoBehaviour
     public float fireRate;
     public GameObject bulletSpawn;
     public float timer;
+    public float bulletSpeed;
+    public float bulletScale;
+    public float spread;
+    public int pellets;
     List<GameObject> bullets;
     // Start is called before the first frame update
     void Start()
@@ -31,19 +35,21 @@ public class ShotgunFarmer : MonoBehaviour
 
     void fire()
     {
-        bullets = new List<GameObject>();
-        bullets.Add(Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity));
-        bullets.Add(Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity));
-        bullets.Add(Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity));
+        float angle = -spread * (pellets / 2 - 0.5f);
+        for(int i = 0; i < pellets; i++)
+        {
+            spawnBullet(angle);
+            angle += spread;
+        }
 
-        var rotation = Quaternion.AngleAxis(15, Vector3.forward);
+    }
 
-        bullets[0].GetComponent<Bulllet>().target = duck.transform.position;
-        bullets[0].GetComponent<Bulllet>().rot = Quaternion.identity;
-        bullets[1].GetComponent<Bulllet>().target = duck.transform.position;
-        bullets[1].GetComponent<Bulllet>().rot = Quaternion.AngleAxis(15, Vector3.forward);
-        bullets[2].GetComponent<Bulllet>().target = duck.transform.position;
-        bullets[2].GetComponent<Bulllet>().rot = Quaternion.AngleAxis(-15, Vector3.forward);
-
+    void spawnBullet(float angle)
+    { 
+        GameObject firedBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
+        firedBullet.GetComponent<Bulllet>().rot = Quaternion.AngleAxis(angle, Vector3.forward);
+        firedBullet.GetComponent<Bulllet>().target = duck.transform.position;
+        firedBullet.GetComponent<Bulllet>().speed = bulletSpeed;
+        firedBullet.transform.localScale = new Vector3(1, 1, 1) * bulletScale;
     }
 }

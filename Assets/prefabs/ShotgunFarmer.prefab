@@ -133,3 +133,7 @@ MonoBehaviour:
   fireRate: 1
   bulletSpawn: {fileID: 2849652849418656753}
   timer: 0
+  bulletSpeed: 5
+  bulletScale: 0.5
+  spread: 15
+  pellets: 10
