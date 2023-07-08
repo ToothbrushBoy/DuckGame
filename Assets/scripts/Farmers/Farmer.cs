@@ -17,8 +17,8 @@ public class Farmer : MonoBehaviour
     private float scaling;
     void Start()
     {
-        duck = GameObject.FindGameObjectsWithTag("Player")[0];
-        
+        var ducks = GameObject.FindGameObjectsWithTag("Player");
+        duck = ducks[ducks.Length-1];
         bulletSpeed = defaultBulletSpeed * scaling;
         fireRate = defualtFireRate / scaling;
     }

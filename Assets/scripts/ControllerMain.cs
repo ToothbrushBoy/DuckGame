@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using System.Linq;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class ControllerMain : MonoBehaviour
@@ -29,6 +30,10 @@ public class ControllerMain : MonoBehaviour
     public delegate void Reset();
     public static event Reset reset;
     public List<GameObject> farmerTypes;
+    private Controls _controls;
+    private InputAction pauseButton;
+    private bool paused;
+
     //public delegate void FarmerTick();
     //public static event FarmerTick farmerTick;
 
@@ -42,6 +47,7 @@ public class ControllerMain : MonoBehaviour
         duckEvents.levelComplete += levelComplete;
         returnToMenu.OnClick += returnToMainMenu;
         optionsButton.goToOptions += openOptionsMenu;
+        StartButton.resetClicked += resetGame;
         menu = UiInstance.transform.GetChild(0).gameObject;
         gameUI = UiInstance.transform.GetChild(1).gameObject;
         fade = UiInstance.transform.GetChild(2).gameObject;
@@ -50,6 +56,7 @@ public class ControllerMain : MonoBehaviour
         gameUI = UiInstance.transform.GetChild(1).gameObject;
         optionsMenu = UiInstance.transform.GetChild(4).gameObject;
         farmers = new ArrayList();
+        paused = false;
 
         //not working :/
         //StartCoroutine(farmer_tick());
@@ -65,6 +72,37 @@ public class ControllerMain : MonoBehaviour
             farmerTick?.Invoke();
         }
     }*/
+
+    private void Awake()
+    {
+        _controls = new Controls();
+        pauseButton = _controls.duck.Pause;
+        pauseButton.performed += PauseButton_performed;
+    }
+    private void PauseButton_performed(InputAction.CallbackContext obj)
+    {
+        if (paused)
+        {
+            Time.timeScale = 1;
+            paused = !paused;
+            gameUI.SetActive(true);
+            endScreen.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            paused = !paused;
+            gameUI.SetActive(false);
+            endScreen.SetActive(true);
+        }
+        
+    }
+
+    private void OnEnable()
+    {
+        
+        
+    }
 
     private void duckFall()
     {
@@ -107,6 +145,7 @@ public class ControllerMain : MonoBehaviour
         endScreen.SetActive(true);
         Destroy(duckInstance);
         killFarmers();
+        pauseButton.Disable();
         reset?.Invoke();
 
 
@@ -115,7 +154,7 @@ public class ControllerMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     void getFarmerSpawnPoints()
@@ -126,13 +165,17 @@ public class ControllerMain : MonoBehaviour
 
     public void startGame()
     {
+        Time.timeScale = 1;
         duckEvents.hit -= duckFall;
         duckEvents.hit += duckFall;
+        duckInstance = null;
+        duckInstance = Instantiate(duck, duckSpawn, Quaternion.identity);
         menu.SetActive(false);
         gameUI.SetActive(true);
         endScreen.SetActive(false);
-        duckInstance = Instantiate(duck, duckSpawn, Quaternion.identity);
+
         spawnFarmers(score+1);
+        pauseButton.Enable();
     }
 
     private void spawnFarmers(float difficulty)
@@ -231,5 +274,15 @@ public class ControllerMain : MonoBehaviour
         menu.SetActive(false);
         optionsMenu.SetActive(true);
     }
+
+    public void resetGame()
+    {
+        
+        Destroy(duckInstance);
+        killFarmers();
+        reset?.Invoke();
+        startGame();
+    }
+
 
 }

@@ -8,6 +8,9 @@ public class StartButton : MonoBehaviour
     public delegate void StartButtonClick();
     public static event StartButtonClick onClicked;
 
+    public delegate void ResetButton();
+    public static event ResetButton resetClicked;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +27,10 @@ public class StartButton : MonoBehaviour
     {
         Debug.Log("Clicked!");
         onClicked?.Invoke();
+    }
+
+    public void onReset()
+    {
+        resetClicked?.Invoke();
     }
 }

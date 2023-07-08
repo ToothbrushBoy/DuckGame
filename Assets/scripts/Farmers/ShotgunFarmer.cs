@@ -20,7 +20,8 @@ public class ShotgunFarmer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        duck = GameObject.FindGameObjectsWithTag("Player")[0];
+        var ducks = GameObject.FindGameObjectsWithTag("Player");
+        duck = ducks[ducks.Length - 1];
         bulletSpeed = defaultBulletSpeed * scaling;
         fireRate = defaultFireRate / scaling;
     }
