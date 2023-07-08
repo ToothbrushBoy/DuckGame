@@ -17,14 +17,17 @@ public class Farmer : MonoBehaviour
     private float scaling;
     void Start()
     {
-        duck = GameObject.FindGameObjectsWithTag("Player")[0];
         
         bulletSpeed = defaultBulletSpeed * scaling;
         fireRate = defualtFireRate / scaling;
+        var ducks = GameObject.FindGameObjectsWithTag("Player");
+        duck = ducks[ducks.Length - 1];
+        GetComponentInChildren<FarmerVisualsInterface>().duck = duck.transform;
     }
 
     private void OnEnable()
     {
+        
         scaling = GetComponent<Difficulty>().scaling;
         
     }

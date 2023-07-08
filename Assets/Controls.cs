@@ -35,6 +35,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""a814a65d-1773-4be8-978d-6132cba7fdd9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -95,23 +104,23 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3e0fc077-2f32-46d6-9624-c15020a2932d"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""id"": ""4cca46a6-f1b4-49c2-a289-5bb0fb55c5e7"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movement"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""256c8ad3-c1cd-4611-938f-d9ce93116501"",
-                    ""path"": ""<Gamepad>/dpad"",
+                    ""id"": ""d9705196-6e88-42d2-9c39-bfdfc40d219a"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movement"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -151,6 +160,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         // duck
         m_duck = asset.FindActionMap("duck", throwIfNotFound: true);
         m_duck_movement = m_duck.FindAction("movement", throwIfNotFound: true);
+        m_duck_Pause = m_duck.FindAction("Pause", throwIfNotFound: true);
         // ui
         m_ui = asset.FindActionMap("ui", throwIfNotFound: true);
         m_ui_click = m_ui.FindAction("click", throwIfNotFound: true);
@@ -216,11 +226,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_duck;
     private List<IDuckActions> m_DuckActionsCallbackInterfaces = new List<IDuckActions>();
     private readonly InputAction m_duck_movement;
+    private readonly InputAction m_duck_Pause;
     public struct DuckActions
     {
         private @Controls m_Wrapper;
         public DuckActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @movement => m_Wrapper.m_duck_movement;
+        public InputAction @Pause => m_Wrapper.m_duck_Pause;
         public InputActionMap Get() { return m_Wrapper.m_duck; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -233,6 +245,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @movement.started += instance.OnMovement;
             @movement.performed += instance.OnMovement;
             @movement.canceled += instance.OnMovement;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IDuckActions instance)
@@ -240,6 +255,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @movement.started -= instance.OnMovement;
             @movement.performed -= instance.OnMovement;
             @movement.canceled -= instance.OnMovement;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IDuckActions instance)
@@ -306,6 +324,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     public interface IDuckActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUiActions
     {
