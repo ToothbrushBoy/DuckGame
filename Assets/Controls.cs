@@ -110,6 +110,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""id"": ""3e0fc077-2f32-46d6-9624-c15020a2932d"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -117,13 +123,16 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""d9705196-6e88-42d2-9c39-bfdfc40d219a"",
                     ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""id"": ""256c8ad3-c1cd-4611-938f-d9ce93116501"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
             ]
         },
         {
