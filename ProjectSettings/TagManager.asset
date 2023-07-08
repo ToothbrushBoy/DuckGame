@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Score
+  - FarmerSpawn
   layers:
   - Default
   - TransparentFX
