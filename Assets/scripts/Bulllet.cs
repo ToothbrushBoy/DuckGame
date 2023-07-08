@@ -8,11 +8,13 @@ public class Bulllet : MonoBehaviour
     private Rigidbody2D rb;
     public Vector2 target;
     public Vector2 dir;
+    public Quaternion rot;
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         Vector2 pos = this.transform.position;
+        target = rot * target;
         this.transform.LookAt(target);
         dir = target - pos;
         dir = dir.normalized;

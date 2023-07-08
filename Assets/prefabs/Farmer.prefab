@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 277524599597402156}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5716776737185923526
 MonoBehaviour:
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6040922320413321774, guid: 450b403922f734b45ad611cd0ec6e242, type: 3}
   duck: {fileID: 0}
-  fireRate: 1
+  fireRate: 0.5
   bulletSpawn: {fileID: 7148497225812968855}
   timer: 0
 --- !u!1 &7148497225812968855

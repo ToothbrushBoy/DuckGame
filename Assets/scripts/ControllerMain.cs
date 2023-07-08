@@ -18,6 +18,7 @@ public class ControllerMain : MonoBehaviour
     private TextMeshProUGUI scoreText;
     private GameObject menu;
     private GameObject gameUI;
+    private ArrayList farmers;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class ControllerMain : MonoBehaviour
         menu = UiInstance.transform.GetChild(0).gameObject;
         gameUI = UiInstance.transform.GetChild(1).gameObject;
         scoreText = gameUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
+        farmers = new ArrayList();
     }
 
     private void levelComplete()
@@ -45,6 +47,10 @@ public class ControllerMain : MonoBehaviour
         menu.SetActive(true);
         gameUI.SetActive(false);
         Destroy(duckInstance);
+        foreach(GameObject farmerInstance in farmers)
+        {
+            Destroy(farmerInstance);
+        }
     }
 
     // Update is called once per frame
@@ -58,6 +64,6 @@ public class ControllerMain : MonoBehaviour
         menu.SetActive(false);
         gameUI.SetActive(true);
         duckInstance = Instantiate(duck, duckSpawn, Quaternion.identity);
-        GameObject farmerInstance = Instantiate(farmer, duckSpawn + new Vector3(2, 0, 0), Quaternion.identity);
+        farmers.Add(Instantiate(farmer, duckSpawn + new Vector3(2, 0, 0), Quaternion.identity));
     }
 }
