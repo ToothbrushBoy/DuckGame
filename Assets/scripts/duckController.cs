@@ -35,7 +35,7 @@ public class duckController : MonoBehaviour
     void Start()
     {
         duckEvents.hit += _hit;
-        hit = true;
+        hit = false;
     }
 
     // Update is called once per frame
@@ -73,7 +73,7 @@ public class duckController : MonoBehaviour
 
     void _hit()
     {
-        hit = false;
+        hit = true;
         animator.SetTrigger("hit");
     }
 }
