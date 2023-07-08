@@ -38,7 +38,7 @@ public class Farmer : MonoBehaviour
         GameObject firedBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
         firedBullet.GetComponent<Bulllet>().target = duck.transform.position;
         firedBullet.GetComponent<Bulllet>().rot = Quaternion.identity;
-        firedBullet.GetComponent<Bulllet>().speed = bulletSpeed;
+        firedBullet.GetComponent<Bulllet>().defaultSpeed = bulletSpeed;
         firedBullet.transform.localScale = new Vector3(1,1,1) * bulletScale;
-    }
+    } 
 }

@@ -24,6 +24,8 @@ public class ControllerMain : MonoBehaviour
     private ArrayList farmers;
     public GameObject spawnParent;
     private Transform[] farmerSpawns;
+    public delegate void Reset();
+    public static event Reset reset;
 
     void Start()
     {
@@ -31,6 +33,7 @@ public class ControllerMain : MonoBehaviour
         UiInstance = Instantiate(UI);
         StartButton.onClicked += startGame;
         duckEvents.death += playerDied;
+        duckEvents.hit += duckFall;
         duckEvents.levelComplete += levelComplete;
         menu = UiInstance.transform.GetChild(0).gameObject;
         gameUI = UiInstance.transform.GetChild(1).gameObject;
@@ -40,11 +43,16 @@ public class ControllerMain : MonoBehaviour
         getFarmerSpawnPoints();
     }
 
+    private void duckFall()
+    {
+        Debug.Log("still brokey");
+        disableFarmers();
+    }
+
     private void levelComplete()
     {
         fade.SetActive(true);
-        score++;
-        killFarmers();
+        
         StartCoroutine(startNext());
 
     }
@@ -52,11 +60,18 @@ public class ControllerMain : MonoBehaviour
     private IEnumerator startNext()
     {
         Debug.Log("waiting");
+        score++;
+        disableFarmers();
         yield return new WaitForSeconds(1f);
+        killFarmers();
+        reset?.Invoke();
         duckInstance.transform.position = duckSpawn;
         scoreText.text = score + "";
-        fade.SetActive(false);
         spawnFarmers(score + 1);
+        disableFarmers();
+        yield return new WaitForSeconds(1f);
+        enableFarmers();
+        fade.SetActive(false);
     }
 
     private void playerDied()
@@ -66,6 +81,7 @@ public class ControllerMain : MonoBehaviour
         gameUI.SetActive(false);
         Destroy(duckInstance);
         killFarmers();
+        reset?.Invoke();
 
 
     }
@@ -84,6 +100,8 @@ public class ControllerMain : MonoBehaviour
 
     public void startGame()
     {
+        duckEvents.hit -= duckFall;
+        duckEvents.hit += duckFall;
         menu.SetActive(false);
         gameUI.SetActive(true);
         duckInstance = Instantiate(duck, duckSpawn, Quaternion.identity);
@@ -93,6 +111,7 @@ public class ControllerMain : MonoBehaviour
     private void spawnFarmers(float difficulty)
     {
         ArrayList used = new ArrayList();
+        farmers = new ArrayList();
         int place;
         float currentDiff = 0f;
         while(currentDiff < difficulty && used.Count < farmerSpawns.Length-1)
@@ -112,9 +131,48 @@ public class ControllerMain : MonoBehaviour
 
     private void killFarmers()
     {
+        Debug.Log("marers :" + "s");
         foreach (GameObject farmerInstance in farmers)
         {
             Destroy(farmerInstance);
+        }
+    }
+
+    private void disableFarmers()
+    {
+        foreach (GameObject farmerInstance in farmers)
+        {
+            var f = farmerInstance.GetComponent<Farmer>();
+            if(f != null)
+            {
+                f.enabled = false;
+            }
+
+            var fs = farmerInstance.GetComponent<ShotgunFarmer>();
+            if (fs != null)
+            {
+                fs.enabled = false;
+            }
+
+        }
+    }
+
+    private void enableFarmers()
+    {
+        foreach (GameObject farmerInstance in farmers)
+        {
+            var f = farmerInstance.GetComponent<Farmer>();
+            if (f != null)
+            {
+                f.enabled = true;
+            }
+
+            var fs = farmerInstance.GetComponent<ShotgunFarmer>();
+            if (fs != null)
+            {
+                fs.enabled = true;
+            }
+
         }
     }
 }

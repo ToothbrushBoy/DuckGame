@@ -10,10 +10,12 @@ public class duckController : MonoBehaviour
     public float acc;
     public Rigidbody2D rb;
     public Animator animator;
+    public bool dead;
+
 
     Vector2 moveDir = Vector2.zero; // normalised vector containing wasd direction
     private InputAction move;
-    private bool hit;
+    public bool hit;
 
     private void Awake()
     {
@@ -79,6 +81,7 @@ public class duckController : MonoBehaviour
             }
 
         }
+       
 
     }
 
@@ -91,5 +94,6 @@ public class duckController : MonoBehaviour
     void _fall()
     {
         animator.SetTrigger("DuckFall");
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, -2);
     }
 }

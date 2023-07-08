@@ -47,10 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6040922320413321774, guid: 450b403922f734b45ad611cd0ec6e242, type: 3}
   duck: {fileID: 0}
-  fireRate: 0.5
+  fireRate: 0.1
   bulletSpawn: {fileID: 7148497225812968855}
   timer: 0
-  bulletSpeed: 5
+  bulletSpeed: 1
   bulletScale: 1
 --- !u!1 &7148497225812968855
 GameObject:
