@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// SET "duck" TO THE DUCK'S TRANSFORM
+// USE "SetJacket(FarmerVisualsInterface.Jacket.-----) WHERE ----- IS THE TYPE OF FARMER. (currently only RIFLE and SHOTGUN)" 
+
 public class FarmerVisualsInterface : MonoBehaviour
 {
     public enum Jacket
