@@ -24,6 +24,8 @@ public class ControllerMain : MonoBehaviour
     private ArrayList farmers;
     public GameObject spawnParent;
     private Transform[] farmerSpawns;
+    public delegate void Reset();
+    public static event Reset reset;
 
     void Start()
     {
@@ -62,6 +64,7 @@ public class ControllerMain : MonoBehaviour
         disableFarmers();
         yield return new WaitForSeconds(1f);
         killFarmers();
+        reset?.Invoke();
         duckInstance.transform.position = duckSpawn;
         scoreText.text = score + "";
         spawnFarmers(score + 1);
@@ -78,6 +81,7 @@ public class ControllerMain : MonoBehaviour
         gameUI.SetActive(false);
         Destroy(duckInstance);
         killFarmers();
+        reset?.Invoke();
 
 
     }

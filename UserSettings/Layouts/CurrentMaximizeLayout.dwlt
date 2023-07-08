@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: -1
+  controlID: 1386
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: -1
+  controlID: 1387
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: -1
+  controlID: 1388
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -238,8 +238,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 78730000
-      m_LastClickedID: 29560
+      m_SelectedIDs: 
+      m_LastClickedID: 0
       m_ExpandedIDs: d6f2ffffbc730000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -899,15 +899,15 @@ MonoBehaviour:
     y: 866
     width: 2132
     height: 441
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 12}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 12}
   - {fileID: 13}
   - {fileID: 14}
-  m_Selected: 0
-  m_LastSelected: 2
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -954,7 +954,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/prefabs/UI
+    - Assets/scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -962,15 +962,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/prefabs/UI
+  - Assets/scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\bafeg\Documents\gameJam\DuckGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 40730000
-    m_LastClickedID: 29504
+    m_SelectedIDs: 0e730000
+    m_LastClickedID: 29454
     m_ExpandedIDs: 00000000f27200000a73000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -999,7 +999,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f2720000
+    m_ExpandedIDs: 00000000f272000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1024,8 +1024,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 78730000
-    m_LastClickedInstanceID: 29560
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -1077,9 +1077,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 746
-    width: 2040
-    height: 613
+    y: 939
+    width: 2131
+    height: 420
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: InspectorWindow
+  m_Name: Window
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -1147,14 +1147,14 @@ MonoBehaviour:
     y: 0
     width: 428
     height: 1307
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1223,9 +1223,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 2041
+    x: 2132
     y: 73
-    width: 518
+    width: 427
     height: 1286
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1241,10 +1241,10 @@ MonoBehaviour:
   notificationClearTime: -1
   timeSinceLastRotation: -1
   currentBranchAndRemoteHasUpdate: 0
-  currentTrackingStatusHasUpdate: 1
-  currentStatusEntriesHasUpdate: 1
-  repositoryProgressHasUpdate: 1
-  appManagerProgressHasUpdate: 1
+  currentTrackingStatusHasUpdate: 0
+  currentStatusEntriesHasUpdate: 0
+  repositoryProgressHasUpdate: 0
+  appManagerProgressHasUpdate: 0
   changeTab: 3
   activeTab: 3
   initProjectView:
@@ -1329,9 +1329,9 @@ MonoBehaviour:
     localBranches: []
     remoteBranches: []
   changesView:
-    currentBranchHasUpdate: 1
-    currentStatusEntriesHasUpdate: 1
-    currentLocksHasUpdate: 1
+    currentBranchHasUpdate: 0
+    currentStatusEntriesHasUpdate: 0
+    currentLocksHasUpdate: 0
     commitBody: 
     commitMessage: 
     currentBranch: master
@@ -1340,11 +1340,11 @@ MonoBehaviour:
       assets:
         keys:
         - 00000000000000001000000000000000
-        - bfc224cdc2b8fb94a84a2c66bb9be400
-        - 55eafe5537494b2469c2e9d3fa888af6
-        - 742ad3ad371aaef449558afd2732135e
-        - b1dff37d58fb6cf42850e8cb3ddd811a
-        - f08b10846771d0c41807c3c3a38a7256
+        - 42c91bc7b2a51bc48beb4136efb0f012
+        - bc97ceeb4ac424d4a8dce7fd8ca910f0
+        - 2570af9302035cd4fa1fa1fbe58ff238
+        - 6a6096f42fe5dbd4fa392f014fd16c7c
+        - 10665d36f5825384e904837d5dfc22c2
         values:
         - path: Assets
           label: Assets
@@ -1364,8 +1364,8 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\prefabs
-          label: prefabs
+        - path: Assets\scripts
+          label: scripts
           level: 1
           isFolder: 1
           isContainer: 0
@@ -1382,8 +1382,44 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\prefabs\UI
-          label: UI
+        - path: Assets\scripts\Bulllet.cs
+          label: Bulllet.cs
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\scripts\Bulllet.cs
+            fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\scripts\Bulllet.cs
+            projectPath: Assets\scripts\Bulllet.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\scripts\ControllerMain.cs
+          label: ControllerMain.cs
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 0
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\scripts\ControllerMain.cs
+            fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\scripts\ControllerMain.cs
+            projectPath: Assets\scripts\ControllerMain.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\scripts\Farmers
+          label: Farmers
           level: 2
           isFolder: 1
           isContainer: 0
@@ -1400,11 +1436,11 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\prefabs\UI\FadeOut.anim
-          label: FadeOut.anim
+        - path: Assets\scripts\Farmers\Farmer.cs
+          label: Farmer.cs
           level: 3
           isFolder: 0
-          isContainer: 1
+          isContainer: 0
           isCollapsed: 0
           isHidden: 0
           isActive: 0
@@ -1412,54 +1448,17 @@ MonoBehaviour:
           checkState: 0
           isLocked: 0
           gitStatusEntry:
-            path: Assets\prefabs\UI\FadeOut.anim
-            fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\FadeOut.anim
-            projectPath: Assets\prefabs\UI\FadeOut.anim
+            path: Assets\scripts\Farmers\Farmer.cs
+            fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\scripts\Farmers\Farmer.cs
+            projectPath: Assets\scripts\Farmers\Farmer.cs
             originalPath: 
             indexStatus: 0
-            workTreeStatus: 5
-        - path: Assets\prefabs\UI\New Material.mat
-          label: New Material.mat
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\prefabs\UI\New Material.mat
-            fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\New
-              Material.mat
-            projectPath: Assets\prefabs\UI\New Material.mat
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 5
-        - path: Assets\prefabs\UI\RawImage.controller
-          label: RawImage.controller
-          level: 3
-          isFolder: 0
-          isContainer: 1
-          isCollapsed: 0
-          isHidden: 0
-          isActive: 0
-          treeIsCheckable: 1
-          checkState: 0
-          isLocked: 0
-          gitStatusEntry:
-            path: Assets\prefabs\UI\RawImage.controller
-            fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\RawImage.controller
-            projectPath: Assets\prefabs\UI\RawImage.controller
-            originalPath: 
-            indexStatus: 0
-            workTreeStatus: 5
+            workTreeStatus: 3
       folders:
         keys:
         - Assets
-        - Assets\prefabs
-        - Assets\prefabs\UI
+        - Assets\scripts
+        - Assets\scripts\Farmers
         values:
         - path: Assets
           label: Assets
@@ -1479,8 +1478,8 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\prefabs
-          label: prefabs
+        - path: Assets\scripts
+          label: scripts
           level: 1
           isFolder: 1
           isContainer: 0
@@ -1497,8 +1496,8 @@ MonoBehaviour:
             originalPath: 
             indexStatus: 0
             workTreeStatus: 0
-        - path: Assets\prefabs\UI
-          label: UI
+        - path: Assets\scripts\Farmers
+          label: Farmers
           level: 2
           isFolder: 1
           isContainer: 0
@@ -1516,8 +1515,65 @@ MonoBehaviour:
             indexStatus: 0
             workTreeStatus: 0
       checkedFileNodes:
-        keys: []
-        values: []
+        keys:
+        - Assets\scripts\Bulllet.cs
+        - Assets\scripts\ControllerMain.cs
+        - Assets\scripts\Farmers\Farmer.cs
+        values:
+        - path: Assets\scripts\Bulllet.cs
+          label: Bulllet.cs
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 1
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\scripts\Bulllet.cs
+            fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\scripts\Bulllet.cs
+            projectPath: Assets\scripts\Bulllet.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\scripts\ControllerMain.cs
+          label: ControllerMain.cs
+          level: 2
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 1
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\scripts\ControllerMain.cs
+            fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\scripts\ControllerMain.cs
+            projectPath: Assets\scripts\ControllerMain.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
+        - path: Assets\scripts\Farmers\Farmer.cs
+          label: Farmer.cs
+          level: 3
+          isFolder: 0
+          isContainer: 0
+          isCollapsed: 0
+          isHidden: 0
+          isActive: 0
+          treeIsCheckable: 1
+          checkState: 1
+          isLocked: 0
+          gitStatusEntry:
+            path: Assets\scripts\Farmers\Farmer.cs
+            fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\scripts\Farmers\Farmer.cs
+            projectPath: Assets\scripts\Farmers\Farmer.cs
+            originalPath: 
+            indexStatus: 0
+            workTreeStatus: 3
       title: 
       pathSeparator: \
       displayRootNode: 0
@@ -1534,7 +1590,7 @@ MonoBehaviour:
         isHidden: 0
         isActive: 0
         treeIsCheckable: 1
-        checkState: 0
+        checkState: 1
         isLocked: 0
         gitStatusEntry:
           path: 
@@ -1552,7 +1608,7 @@ MonoBehaviour:
         isHidden: 0
         isActive: 0
         treeIsCheckable: 1
-        checkState: 0
+        checkState: 1
         isLocked: 0
         gitStatusEntry:
           path: 
@@ -1561,8 +1617,8 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\prefabs
-        label: prefabs
+      - path: Assets\scripts
+        label: scripts
         level: 1
         isFolder: 1
         isContainer: 0
@@ -1570,7 +1626,7 @@ MonoBehaviour:
         isHidden: 0
         isActive: 0
         treeIsCheckable: 1
-        checkState: 0
+        checkState: 1
         isLocked: 0
         gitStatusEntry:
           path: 
@@ -1579,8 +1635,44 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\prefabs\UI
-        label: UI
+      - path: Assets\scripts\Bulllet.cs
+        label: Bulllet.cs
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 1
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\scripts\Bulllet.cs
+          fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\scripts\Bulllet.cs
+          projectPath: Assets\scripts\Bulllet.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\scripts\ControllerMain.cs
+        label: ControllerMain.cs
+        level: 2
+        isFolder: 0
+        isContainer: 0
+        isCollapsed: 0
+        isHidden: 0
+        isActive: 0
+        treeIsCheckable: 1
+        checkState: 1
+        isLocked: 0
+        gitStatusEntry:
+          path: Assets\scripts\ControllerMain.cs
+          fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\scripts\ControllerMain.cs
+          projectPath: Assets\scripts\ControllerMain.cs
+          originalPath: 
+          indexStatus: 0
+          workTreeStatus: 3
+      - path: Assets\scripts\Farmers
+        label: Farmers
         level: 2
         isFolder: 1
         isContainer: 0
@@ -1588,7 +1680,7 @@ MonoBehaviour:
         isHidden: 0
         isActive: 0
         treeIsCheckable: 1
-        checkState: 0
+        checkState: 1
         isLocked: 0
         gitStatusEntry:
           path: 
@@ -1597,116 +1689,24 @@ MonoBehaviour:
           originalPath: 
           indexStatus: 0
           workTreeStatus: 0
-      - path: Assets\prefabs\UI\FadeOut.anim
-        label: FadeOut.anim
+      - path: Assets\scripts\Farmers\Farmer.cs
+        label: Farmer.cs
         level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\prefabs\UI\FadeOut.anim
-          fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\FadeOut.anim
-          projectPath: Assets\prefabs\UI\FadeOut.anim
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\prefabs\UI\FadeOut.anim.meta
-        label: FadeOut.anim.meta
-        level: 4
         isFolder: 0
         isContainer: 0
         isCollapsed: 0
         isHidden: 0
         isActive: 0
         treeIsCheckable: 1
-        checkState: 0
+        checkState: 1
         isLocked: 0
         gitStatusEntry:
-          path: Assets\prefabs\UI\FadeOut.anim.meta
-          fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\FadeOut.anim.meta
-          projectPath: Assets\prefabs\UI\FadeOut.anim.meta
+          path: Assets\scripts\Farmers\Farmer.cs
+          fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\scripts\Farmers\Farmer.cs
+          projectPath: Assets\scripts\Farmers\Farmer.cs
           originalPath: 
           indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\prefabs\UI\New Material.mat
-        label: New Material.mat
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\prefabs\UI\New Material.mat
-          fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\New
-            Material.mat
-          projectPath: Assets\prefabs\UI\New Material.mat
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\prefabs\UI\New Material.mat.meta
-        label: New Material.mat.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\prefabs\UI\New Material.mat.meta
-          fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\New
-            Material.mat.meta
-          projectPath: Assets\prefabs\UI\New Material.mat.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\prefabs\UI\RawImage.controller
-        label: RawImage.controller
-        level: 3
-        isFolder: 0
-        isContainer: 1
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\prefabs\UI\RawImage.controller
-          fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\RawImage.controller
-          projectPath: Assets\prefabs\UI\RawImage.controller
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
-      - path: Assets\prefabs\UI\RawImage.controller.meta
-        label: RawImage.controller.meta
-        level: 4
-        isFolder: 0
-        isContainer: 0
-        isCollapsed: 0
-        isHidden: 0
-        isActive: 0
-        treeIsCheckable: 1
-        checkState: 0
-        isLocked: 0
-        gitStatusEntry:
-          path: Assets\prefabs\UI\RawImage.controller.meta
-          fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\RawImage.controller.meta
-          projectPath: Assets\prefabs\UI\RawImage.controller.meta
-          originalPath: 
-          indexStatus: 0
-          workTreeStatus: 5
+          workTreeStatus: 3
       selectedNode:
         path: 
         label: 
@@ -1727,51 +1727,33 @@ MonoBehaviour:
           indexStatus: 0
           workTreeStatus: 0
     gitStatusEntries:
-    - path: Assets\prefabs\UI\FadeOut.anim
-      fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\FadeOut.anim
-      projectPath: Assets\prefabs\UI\FadeOut.anim
+    - path: Assets\scripts\Bulllet.cs
+      fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\scripts\Bulllet.cs
+      projectPath: Assets\scripts\Bulllet.cs
       originalPath: 
       indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\prefabs\UI\FadeOut.anim.meta
-      fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\FadeOut.anim.meta
-      projectPath: Assets\prefabs\UI\FadeOut.anim.meta
+      workTreeStatus: 3
+    - path: Assets\scripts\ControllerMain.cs
+      fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\scripts\ControllerMain.cs
+      projectPath: Assets\scripts\ControllerMain.cs
       originalPath: 
       indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\prefabs\UI\New Material.mat
-      fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\New Material.mat
-      projectPath: Assets\prefabs\UI\New Material.mat
+      workTreeStatus: 3
+    - path: Assets\scripts\Farmers\Farmer.cs
+      fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\scripts\Farmers\Farmer.cs
+      projectPath: Assets\scripts\Farmers\Farmer.cs
       originalPath: 
       indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\prefabs\UI\New Material.mat.meta
-      fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\New Material.mat.meta
-      projectPath: Assets\prefabs\UI\New Material.mat.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\prefabs\UI\RawImage.controller
-      fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\RawImage.controller
-      projectPath: Assets\prefabs\UI\RawImage.controller
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    - path: Assets\prefabs\UI\RawImage.controller.meta
-      fullPath: C:\Users\bafeg\Documents\gameJam\DuckGame\Assets\prefabs\UI\RawImage.controller.meta
-      projectPath: Assets\prefabs\UI\RawImage.controller.meta
-      originalPath: 
-      indexStatus: 0
-      workTreeStatus: 5
-    changedFilesText: 6 changed files
+      workTreeStatus: 3
+    changedFilesText: 3 changed files
     lastCurrentBranchChangedEvent:
-      updatedTimeString: 2023-07-08T15:48:27.047+01:00
+      updatedTimeString: 2023-07-08T16:05:13.077+01:00
       cacheType: 1
     lastStatusEntriesChangedEvent:
-      updatedTimeString: 2023-07-08T15:54:37.952+01:00
+      updatedTimeString: 2023-07-08T16:10:57.182+01:00
       cacheType: 6
     lastLocksChangedEvent:
-      updatedTimeString: 2023-07-08T15:54:11.387+01:00
+      updatedTimeString: 2023-07-08T16:10:25.864+01:00
       cacheType: 7
   historyView:
     currentLogHasUpdate: 0
@@ -7043,13 +7025,13 @@ MonoBehaviour:
     m_Image: {fileID: 0}
     m_Tooltip: Url of the origin remote
   lastCurrentBranchAndRemoteChangedEvent:
-    updatedTimeString: 2023-07-08T15:42:22.156+01:00
+    updatedTimeString: 2023-07-08T16:05:13.077+01:00
     cacheType: 1
   lastTrackingStatusChangedEvent:
-    updatedTimeString: 2023-07-08T15:44:32.240+01:00
+    updatedTimeString: 2023-07-08T16:05:24.960+01:00
     cacheType: 5
   lastStatusEntriesChangedEvent:
-    updatedTimeString: 2023-07-08T15:44:32.134+01:00
+    updatedTimeString: 2023-07-08T16:10:57.182+01:00
     cacheType: 6
   pullButtonContent:
     m_Text: Pull

@@ -40,5 +40,5 @@ public class Farmer : MonoBehaviour
         firedBullet.GetComponent<Bulllet>().rot = Quaternion.identity;
         firedBullet.GetComponent<Bulllet>().defaultSpeed = bulletSpeed;
         firedBullet.transform.localScale = new Vector3(1,1,1) * bulletScale;
-    }
+    } 
 }

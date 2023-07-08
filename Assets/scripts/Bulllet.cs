@@ -19,6 +19,7 @@ public class Bulllet : MonoBehaviour
         Vector2 pos = this.transform.position;
         duckEvents.hit += freeze;
         duckEvents.fall += unFreeze;
+        ControllerMain.reset += selfDestruct;
         target = rot * target;
         this.transform.LookAt(target);
         dir = target - pos;
@@ -41,6 +42,7 @@ public class Bulllet : MonoBehaviour
     {
         duckEvents.hit -= freeze;
         duckEvents.fall -= unFreeze;
+        ControllerMain.reset -= selfDestruct;
     }
 
     public void freeze()
@@ -55,6 +57,7 @@ public class Bulllet : MonoBehaviour
 
     public void selfDestruct()
     {
+        Debug.Log("bullet kill");
         Destroy(this.gameObject);
     }
 }
