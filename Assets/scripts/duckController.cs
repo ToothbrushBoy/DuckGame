@@ -36,6 +36,7 @@ public class duckController : MonoBehaviour
     {
         duckEvents.hit += _hit;
         duckEvents.fall += _fall;
+        rb = GetComponent<Rigidbody2D>();
         hit = false;
     }
 

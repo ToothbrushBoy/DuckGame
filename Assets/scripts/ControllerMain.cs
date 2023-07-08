@@ -20,6 +20,7 @@ public class ControllerMain : MonoBehaviour
     private TextMeshProUGUI scoreText;
     private GameObject menu;
     private GameObject gameUI;
+    private GameObject fade;
     private ArrayList farmers;
     public GameObject spawnParent;
     private Transform[] farmerSpawns;
@@ -33,6 +34,7 @@ public class ControllerMain : MonoBehaviour
         duckEvents.levelComplete += levelComplete;
         menu = UiInstance.transform.GetChild(0).gameObject;
         gameUI = UiInstance.transform.GetChild(1).gameObject;
+        fade = UiInstance.transform.GetChild(2).gameObject;
         scoreText = gameUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
         farmers = new ArrayList();
         getFarmerSpawnPoints();
@@ -40,12 +42,21 @@ public class ControllerMain : MonoBehaviour
 
     private void levelComplete()
     {
+        fade.SetActive(true);
         score++;
-        scoreText.text = score + "";
-        duckInstance.transform.position = duckSpawn;
         killFarmers();
-        spawnFarmers(score + 1);
+        StartCoroutine(startNext());
 
+    }
+
+    private IEnumerator startNext()
+    {
+        Debug.Log("waiting");
+        yield return new WaitForSeconds(1f);
+        duckInstance.transform.position = duckSpawn;
+        scoreText.text = score + "";
+        fade.SetActive(false);
+        spawnFarmers(score + 1);
     }
 
     private void playerDied()
