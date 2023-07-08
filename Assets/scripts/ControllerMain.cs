@@ -132,10 +132,13 @@ public class ControllerMain : MonoBehaviour
             }
             var spawn = farmerSpawns[place];
             used.Add(place);
-            farmers.Add(Instantiate(toSpawn, spawn.position, Quaternion.identity));
+            var newFarmer = Instantiate(toSpawn, spawn.position, Quaternion.identity);
+
+
+            newFarmer.GetComponent<Difficulty>().scaling = 1 + (difficulty-1) / 10;
+            farmers.Add(newFarmer);
             currentDiff += toSpawn.GetComponent<Difficulty>().difficulty;
         }
-        Debug.Log(currentDiff);
     }
 
     private void killFarmers()

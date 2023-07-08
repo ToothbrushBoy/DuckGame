@@ -138,7 +138,6 @@ MonoBehaviour:
   bulletScale: 1
   spread: 15
   pellets: 3
-  difficulty: 0
 --- !u!114 &6595491857682491804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +151,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 3
+  scaling: 1
