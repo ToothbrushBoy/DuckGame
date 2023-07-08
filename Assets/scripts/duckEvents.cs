@@ -30,11 +30,13 @@ public class duckEvents : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("there is a collison");
         if(collision.gameObject.tag == "Finish")
         {
             levelComplete();
         }else if(collision.gameObject.tag == "Bullet")
         {
+            Debug.Log("been hit");
             StartCoroutine(hitCo());
         }else if(collision.gameObject.tag == "Ground" && dead)
         {

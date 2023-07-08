@@ -39,6 +39,7 @@ public class ControllerMain : MonoBehaviour
         duckEvents.death += playerDied;
         duckEvents.hit += duckFall;
         duckEvents.levelComplete += levelComplete;
+        returnToMenu.OnClick += returnToMainMenu;
         menu = UiInstance.transform.GetChild(0).gameObject;
         gameUI = UiInstance.transform.GetChild(1).gameObject;
         fade = UiInstance.transform.GetChild(2).gameObject;
@@ -209,4 +210,16 @@ public class ControllerMain : MonoBehaviour
 
         }
     }
+
+    public void returnToMainMenu()
+    {
+        score = 0;
+        menu.SetActive(true);
+        gameUI.SetActive(false);
+        endScreen.SetActive(false);
+        Destroy(duckInstance);
+        killFarmers();
+        reset?.Invoke();
+    }
+
 }
