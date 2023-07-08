@@ -19,6 +19,7 @@ public class ControllerMain : MonoBehaviour
     private GameObject duckInstance;
     private int score;
     private TextMeshProUGUI scoreText;
+    private TextMeshProUGUI scoreTextEnd;
     private GameObject menu;
     private GameObject gameUI;
     private GameObject endScreen;
@@ -53,6 +54,7 @@ public class ControllerMain : MonoBehaviour
         fade = UiInstance.transform.GetChild(2).gameObject;
         endScreen = UiInstance.transform.GetChild(3).gameObject;
         scoreText = gameUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
+        scoreTextEnd = endScreen.transform.GetChild(0).GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
         gameUI = UiInstance.transform.GetChild(1).gameObject;
         optionsMenu = UiInstance.transform.GetChild(4).gameObject;
         farmers = new ArrayList();
@@ -139,10 +141,11 @@ public class ControllerMain : MonoBehaviour
 
     private void playerDied()
     {
-        score = 0;
+        
         menu.SetActive(false);
         gameUI.SetActive(false);
         endScreen.SetActive(true);
+        scoreTextEnd.text = score + "";
         Destroy(duckInstance);
         killFarmers();
         pauseButton.Disable();
@@ -165,7 +168,9 @@ public class ControllerMain : MonoBehaviour
 
     public void startGame()
     {
+        score = 0;
         Time.timeScale = 1;
+        scoreText.text = score + "";
         duckEvents.hit -= duckFall;
         duckEvents.hit += duckFall;
         duckInstance = null;
