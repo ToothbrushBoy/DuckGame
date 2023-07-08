@@ -34,6 +34,7 @@ public class ControllerMain : MonoBehaviour
     private Controls _controls;
     private InputAction pauseButton;
     private bool paused;
+    public AudioSource music;
 
     //public delegate void FarmerTick();
     //public static event FarmerTick farmerTick;
@@ -96,6 +97,7 @@ public class ControllerMain : MonoBehaviour
             paused = !paused;
             gameUI.SetActive(false);
             endScreen.SetActive(true);
+            scoreTextEnd.text = score + "";
         }
         
     }
@@ -150,6 +152,7 @@ public class ControllerMain : MonoBehaviour
         killFarmers();
         pauseButton.Disable();
         reset?.Invoke();
+        music.Stop();
 
 
     }
@@ -180,7 +183,9 @@ public class ControllerMain : MonoBehaviour
         endScreen.SetActive(false);
 
         spawnFarmers(score+1);
+        paused = false;
         pauseButton.Enable();
+        music.Play();
     }
 
     private void spawnFarmers(float difficulty)
@@ -272,6 +277,7 @@ public class ControllerMain : MonoBehaviour
         Destroy(duckInstance);
         killFarmers();
         reset?.Invoke();
+        music.Stop();
     }
 
     public void openOptionsMenu()
