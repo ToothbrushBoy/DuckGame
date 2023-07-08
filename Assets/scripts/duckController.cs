@@ -13,6 +13,7 @@ public class duckController : MonoBehaviour
 
     Vector2 moveDir = Vector2.zero; // normalised vector containing wasd direction
     private InputAction move;
+    private bool hit;
 
     private void Awake()
     {
@@ -33,7 +34,8 @@ public class duckController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        duckEvents.hit += _hit;
+        hit = true;
     }
 
     // Update is called once per frame
@@ -46,26 +48,32 @@ public class duckController : MonoBehaviour
             rb.velocity = moveDir * speedCap;
         }
 
-        if(moveDir.x < 0)
+        if(moveDir.x < 0 && !hit) // I'll probably redo it and it'll look much better
         {
             animator.SetBool("left", true);
         } else
         {
             animator.SetBool("left", false);
         }
-        if(moveDir.y == 0)
+        if(moveDir.y == 0 && !hit)
         {
             animator.SetBool("up", false);
             animator.SetBool("down", false);
-        } else if (moveDir.y > 0)
+        } else if (moveDir.y > 0 && !hit)
         {
             animator.SetBool("up", true);
             animator.SetBool("down", false);
-        } else
+        } else if (!hit)
         {
             animator.SetBool("up", false);
             animator.SetBool("down", true);
         }
 
+    }
+
+    void _hit()
+    {
+        hit = false;
+        animator.SetTrigger("hit");
     }
 }

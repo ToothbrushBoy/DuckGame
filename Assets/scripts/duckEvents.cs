@@ -7,6 +7,9 @@ public class duckEvents : MonoBehaviour
     public delegate void Death();
     public static event Death death;
 
+    public delegate void Hit();
+    public static event Hit hit;
+
     public delegate void LevelComplete();
     public static event LevelComplete levelComplete;
     // Start is called before the first frame update
@@ -28,8 +31,15 @@ public class duckEvents : MonoBehaviour
             levelComplete();
         }else if(collision.gameObject.tag == "Bullet")
         {
-            die();
+            _hit();
         }
+    }
+
+    void _hit()
+    {
+        hit?.Invoke();
+
+        die();
     }
 
     void die()
