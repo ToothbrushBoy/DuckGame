@@ -52,6 +52,8 @@ MonoBehaviour:
   acc: 2
   rb: {fileID: 298835349352571552}
   animator: {fileID: 7790462879717457577}
+  dead: 0
+  hit: 0
 --- !u!50 &298835349352571552
 Rigidbody2D:
   serializedVersion: 4
@@ -86,7 +88,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4896973818957571844}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

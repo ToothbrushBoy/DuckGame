@@ -20,6 +20,7 @@ public class ControllerMain : MonoBehaviour
     private TextMeshProUGUI scoreText;
     private GameObject menu;
     private GameObject gameUI;
+    private GameObject endScreen;
     private GameObject fade;
     private ArrayList farmers;
     public GameObject spawnParent;
@@ -41,7 +42,9 @@ public class ControllerMain : MonoBehaviour
         menu = UiInstance.transform.GetChild(0).gameObject;
         gameUI = UiInstance.transform.GetChild(1).gameObject;
         fade = UiInstance.transform.GetChild(2).gameObject;
+        endScreen = UiInstance.transform.GetChild(3).gameObject;
         scoreText = gameUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
+        gameUI = UiInstance.transform.GetChild(1).gameObject;
         farmers = new ArrayList();
 
         //not working :/
@@ -77,6 +80,7 @@ public class ControllerMain : MonoBehaviour
     {
         Debug.Log("waiting");
         score++;
+        duck.GetComponent<CircleCollider2D>().enabled = false;
         disableFarmers();
         yield return new WaitForSeconds(1f);
         killFarmers();
@@ -88,13 +92,15 @@ public class ControllerMain : MonoBehaviour
         yield return new WaitForSeconds(1f);
         enableFarmers();
         fade.SetActive(false);
+        duck.GetComponent<CircleCollider2D>().enabled = true;
     }
 
     private void playerDied()
     {
         score = 0;
-        menu.SetActive(true);
+        menu.SetActive(false);
         gameUI.SetActive(false);
+        endScreen.SetActive(true);
         Destroy(duckInstance);
         killFarmers();
         reset?.Invoke();
@@ -120,6 +126,7 @@ public class ControllerMain : MonoBehaviour
         duckEvents.hit += duckFall;
         menu.SetActive(false);
         gameUI.SetActive(true);
+        endScreen.SetActive(false);
         duckInstance = Instantiate(duck, duckSpawn, Quaternion.identity);
         spawnFarmers(score+1);
     }
