@@ -21,7 +21,7 @@ public class Bulllet : MonoBehaviour
         duckEvents.fall += unFreeze;
         ControllerMain.reset += selfDestruct;
         target = rot * target;
-        this.transform.LookAt(target);
+        transform.LookAt(target);
         dir = target - pos;
         dir = dir.normalized;
     }
