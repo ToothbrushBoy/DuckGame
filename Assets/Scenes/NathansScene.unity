@@ -751,6 +751,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 1301269396694848935, guid: 6fe369c8279744041bd17e9603f1f087,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2291764029951626069, guid: 6fe369c8279744041bd17e9603f1f087,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -815,6 +820,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7500958273419229135, guid: 6fe369c8279744041bd17e9603f1f087,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.839
+      objectReference: {fileID: 0}
+    - target: {fileID: 7500958273419229135, guid: 6fe369c8279744041bd17e9603f1f087,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7569676918049267829, guid: 6fe369c8279744041bd17e9603f1f087,
+        type: 3}
+      propertyPath: farmer
+      value: 
+      objectReference: {fileID: 7379398964991517416, guid: 35e77dfecfbf2cf43ad2203ed741f63d,
+        type: 3}
+    - target: {fileID: 8530348003592988779, guid: 6fe369c8279744041bd17e9603f1f087,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 8557961355080174224, guid: 6fe369c8279744041bd17e9603f1f087,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.609
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
