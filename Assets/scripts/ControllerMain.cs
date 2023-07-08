@@ -22,6 +22,7 @@ public class ControllerMain : MonoBehaviour
     private GameObject gameUI;
     private GameObject endScreen;
     private GameObject fade;
+    private GameObject optionsMenu;
     private ArrayList farmers;
     public GameObject spawnParent;
     private Transform[] farmerSpawns;
@@ -40,12 +41,14 @@ public class ControllerMain : MonoBehaviour
         duckEvents.hit += duckFall;
         duckEvents.levelComplete += levelComplete;
         returnToMenu.OnClick += returnToMainMenu;
+        optionsButton.goToOptions += openOptionsMenu;
         menu = UiInstance.transform.GetChild(0).gameObject;
         gameUI = UiInstance.transform.GetChild(1).gameObject;
         fade = UiInstance.transform.GetChild(2).gameObject;
         endScreen = UiInstance.transform.GetChild(3).gameObject;
         scoreText = gameUI.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
         gameUI = UiInstance.transform.GetChild(1).gameObject;
+        optionsMenu = UiInstance.transform.GetChild(4).gameObject;
         farmers = new ArrayList();
 
         //not working :/
@@ -217,9 +220,16 @@ public class ControllerMain : MonoBehaviour
         menu.SetActive(true);
         gameUI.SetActive(false);
         endScreen.SetActive(false);
+        optionsMenu.SetActive(false);
         Destroy(duckInstance);
         killFarmers();
         reset?.Invoke();
+    }
+
+    public void openOptionsMenu()
+    {
+        menu.SetActive(false);
+        optionsMenu.SetActive(true);
     }
 
 }
