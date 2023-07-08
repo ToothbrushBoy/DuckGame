@@ -12,6 +12,7 @@ public class Farmer : MonoBehaviour
     public float timer;
     public float bulletSpeed;
     public float bulletScale;
+    public float difficulty;
     void Start()
     {
         duck = GameObject.FindGameObjectsWithTag("Player")[0];

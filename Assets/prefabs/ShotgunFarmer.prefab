@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 78617836021746483}
   - component: {fileID: 7229562163688851921}
+  - component: {fileID: 6595491857682491804}
   m_Layer: 0
   m_Name: ShotgunFarmer
   m_TagString: Untagged
@@ -133,7 +134,21 @@ MonoBehaviour:
   fireRate: 1
   bulletSpawn: {fileID: 2849652849418656753}
   timer: 0
-  bulletSpeed: 2
+  bulletSpeed: 4
   bulletScale: 1
-  spread: 40
-  pellets: 5
+  spread: 15
+  pellets: 3
+  difficulty: 0
+--- !u!114 &6595491857682491804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379398964991517416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f226ccf1096dae458de3bd739e6e5e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty: 3

@@ -13,6 +13,7 @@ public class ShotgunFarmer : MonoBehaviour
     public float bulletScale;
     public float spread;
     public int pellets;
+    public float difficulty;
     List<GameObject> bullets;
     // Start is called before the first frame update
     void Start()

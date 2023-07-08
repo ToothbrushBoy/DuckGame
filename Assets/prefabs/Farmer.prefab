@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6483588906497555672}
   - component: {fileID: 5716776737185923526}
+  - component: {fileID: 3969746456604037712}
   m_Layer: 0
   m_Name: Farmer
   m_TagString: Untagged
@@ -47,11 +48,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6040922320413321774, guid: 450b403922f734b45ad611cd0ec6e242, type: 3}
   duck: {fileID: 0}
-  fireRate: 0.1
+  fireRate: 0.5
   bulletSpawn: {fileID: 7148497225812968855}
   timer: 0
-  bulletSpeed: 1
+  bulletSpeed: 4
   bulletScale: 1
+  difficulty: 0
+--- !u!114 &3969746456604037712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2987817137406809233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f226ccf1096dae458de3bd739e6e5e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficulty: 1
 --- !u!1 &7148497225812968855
 GameObject:
   m_ObjectHideFlags: 0

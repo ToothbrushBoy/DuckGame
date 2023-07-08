@@ -26,6 +26,7 @@ public class ControllerMain : MonoBehaviour
     private Transform[] farmerSpawns;
     public delegate void Reset();
     public static event Reset reset;
+    public List<GameObject> farmerTypes;
 
     void Start()
     {
@@ -116,17 +117,25 @@ public class ControllerMain : MonoBehaviour
         float currentDiff = 0f;
         while(currentDiff < difficulty && used.Count < farmerSpawns.Length-1)
         {
+
+            int type = UnityEngine.Random.Range(0, farmerTypes.Count);
+            var toSpawn = farmerTypes[type];
             //this is 1 start of range becuse we want to ignore the first entry in the list
             place = UnityEngine.Random.Range(1, farmerSpawns.Length - 1);
+
+
+
+
             while (used.Contains(place))
             {
                 place = UnityEngine.Random.Range(1, farmerSpawns.Length);
             }
             var spawn = farmerSpawns[place];
             used.Add(place);
-            farmers.Add(Instantiate(farmer, spawn.position, Quaternion.identity));
-            currentDiff += 1;
+            farmers.Add(Instantiate(toSpawn, spawn.position, Quaternion.identity));
+            currentDiff += toSpawn.GetComponent<Difficulty>().difficulty;
         }
+        Debug.Log(currentDiff);
     }
 
     private void killFarmers()
