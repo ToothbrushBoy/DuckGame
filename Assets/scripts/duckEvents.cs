@@ -9,6 +9,8 @@ public class duckEvents : MonoBehaviour
 
     public delegate void Hit();
     public static event Hit hit;
+    public delegate void Fall();
+    public static event Fall fall;
 
     public delegate void LevelComplete();
     public static event LevelComplete levelComplete;
@@ -31,14 +33,21 @@ public class duckEvents : MonoBehaviour
             levelComplete();
         }else if(collision.gameObject.tag == "Bullet")
         {
-            _hit();
+            StartCoroutine(hitCo());
         }
     }
 
-    void _hit()
+    IEnumerator hitCo()
     {
         hit?.Invoke();
+        yield return new WaitForSeconds(1.5f);
+        _fall();
+    }
 
+    void _fall()
+    {
+        fall?.Invoke();
+        // vv make it fall then move die invoke vv
         die();
     }
 
