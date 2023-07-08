@@ -41,7 +41,10 @@ public class ControllerMain : MonoBehaviour
 
     private void playerDied()
     {
-        Debug.Log("Worked died");
+        score = 0;
+        menu.SetActive(true);
+        gameUI.SetActive(false);
+        Destroy(duckInstance);
     }
 
     // Update is called once per frame
