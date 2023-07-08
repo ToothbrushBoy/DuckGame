@@ -29,6 +29,8 @@ public class duckController : MonoBehaviour
     public void OnDisable()
     {
         move.Disable();
+        duckEvents.hit -= _hit;
+        duckEvents.fall -= _fall;
     }
 
     // Start is called before the first frame update
