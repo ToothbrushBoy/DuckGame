@@ -35,38 +35,46 @@ public class duckController : MonoBehaviour
     void Start()
     {
         duckEvents.hit += _hit;
+        duckEvents.fall += _fall;
         hit = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveDir = move.ReadValue<Vector2>();
-        rb.AddForce(moveDir * acc);
-        if(rb.velocity.magnitude > speedCap)
+        if (!hit)
         {
-            rb.velocity = moveDir * speedCap;
-        }
+            moveDir = move.ReadValue<Vector2>();
+            rb.AddForce(moveDir * acc);
+            if (rb.velocity.magnitude > speedCap)
+            {
+                rb.velocity = moveDir * speedCap;
+            }
 
-        if(moveDir.x < 0 && !hit) // I'll probably redo it and it'll look much better
-        {
-            animator.SetBool("left", true);
-        } else
-        {
-            animator.SetBool("left", false);
-        }
-        if(moveDir.y == 0 && !hit)
-        {
-            animator.SetBool("up", false);
-            animator.SetBool("down", false);
-        } else if (moveDir.y > 0 && !hit)
-        {
-            animator.SetBool("up", true);
-            animator.SetBool("down", false);
-        } else if (!hit)
-        {
-            animator.SetBool("up", false);
-            animator.SetBool("down", true);
+            if (moveDir.x < 0) // I'll probably redo it and it'll look much better
+            {
+                animator.SetBool("left", true);
+            }
+            else
+            {
+                animator.SetBool("left", false);
+            }
+            if (moveDir.y == 0)
+            {
+                animator.SetBool("up", false);
+                animator.SetBool("down", false);
+            }
+            else if (moveDir.y > 0)
+            {
+                animator.SetBool("up", true);
+                animator.SetBool("down", false);
+            }
+            else
+            {
+                animator.SetBool("up", false);
+                animator.SetBool("down", true);
+            }
+
         }
 
     }
@@ -74,6 +82,11 @@ public class duckController : MonoBehaviour
     void _hit()
     {
         hit = true;
-        animator.SetTrigger("hit");
+        rb.velocity = moveDir * 0;
+        animator.SetTrigger("DuckHit");
+    }
+    void _fall()
+    {
+        animator.SetTrigger("DuckFall");
     }
 }
