@@ -14,10 +14,18 @@ public class ShotgunFarmer : MonoBehaviour
     public float spread;
     public int pellets;
     List<GameObject> bullets;
+    private float scaling;
     // Start is called before the first frame update
     void Start()
     {
         duck = GameObject.FindGameObjectsWithTag("Player")[0];
+        bulletSpeed = bulletSpeed * scaling;
+        fireRate = fireRate / scaling;
+    }
+
+    private void OnEnable()
+    {
+        scaling = GetComponent<Difficulty>().scaling;
 
     }
 

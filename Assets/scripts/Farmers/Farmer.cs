@@ -12,9 +12,19 @@ public class Farmer : MonoBehaviour
     public float timer;
     public float bulletSpeed;
     public float bulletScale;
+    private float scaling;
     void Start()
     {
         duck = GameObject.FindGameObjectsWithTag("Player")[0];
+        
+        bulletSpeed = bulletSpeed * scaling;
+        fireRate = fireRate / scaling;
+    }
+
+    private void OnEnable()
+    {
+        scaling = GetComponent<Difficulty>().scaling;
+        
     }
 
     // Update is called once per frame
