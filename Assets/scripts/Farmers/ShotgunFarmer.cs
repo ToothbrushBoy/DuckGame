@@ -6,10 +6,12 @@ public class ShotgunFarmer : MonoBehaviour
 {
     public GameObject bullet;
     public GameObject duck;
-    public float fireRate;
+    private float fireRate;
+    public float defaultFireRate;
     public GameObject bulletSpawn;
     public float timer;
-    public float bulletSpeed;
+    private float bulletSpeed;
+    public float defaultBulletSpeed;
     public float bulletScale;
     public float spread;
     public int pellets;
@@ -19,8 +21,8 @@ public class ShotgunFarmer : MonoBehaviour
     void Start()
     {
         duck = GameObject.FindGameObjectsWithTag("Player")[0];
-        bulletSpeed = bulletSpeed * scaling;
-        fireRate = fireRate / scaling;
+        bulletSpeed = defaultBulletSpeed * scaling;
+        fireRate = defaultFireRate / scaling;
     }
 
     private void OnEnable()

@@ -7,18 +7,20 @@ public class Farmer : MonoBehaviour
     // Start is called before the first frame update
     public GameObject bullet;
     public GameObject duck;
-    public float fireRate;
+    private float fireRate;
+    public float defualtFireRate;
     public GameObject bulletSpawn;
     public float timer;
-    public float bulletSpeed;
+    public float defaultBulletSpeed;
+    private float bulletSpeed;
     public float bulletScale;
     private float scaling;
     void Start()
     {
         duck = GameObject.FindGameObjectsWithTag("Player")[0];
         
-        bulletSpeed = bulletSpeed * scaling;
-        fireRate = fireRate / scaling;
+        bulletSpeed = defaultBulletSpeed * scaling;
+        fireRate = defualtFireRate / scaling;
     }
 
     private void OnEnable()
