@@ -12,12 +12,14 @@ public class duckEvents : MonoBehaviour
     public delegate void Fall();
     public static event Fall fall;
 
+    private bool dead;
+
     public delegate void LevelComplete();
     public static event LevelComplete levelComplete;
     // Start is called before the first frame update
     void Start()
     {
-        
+        dead = false;
     }
 
     // Update is called once per frame
@@ -34,6 +36,10 @@ public class duckEvents : MonoBehaviour
         }else if(collision.gameObject.tag == "Bullet")
         {
             StartCoroutine(hitCo());
+        }else if(collision.gameObject.tag == "Ground" && dead)
+        {
+            Debug.Log("dead on ground");
+            die();
         }
     }
 
@@ -47,14 +53,14 @@ public class duckEvents : MonoBehaviour
     void _fall()
     {
         fall?.Invoke();
-        // vv make it fall then move die invoke vv
-        die();
+        dead = true;
+        //death?.Invoke();
     }
 
     void die()
     {
-        Debug.Log("died");
         death?.Invoke();
+
     }
 
     void levelfin()

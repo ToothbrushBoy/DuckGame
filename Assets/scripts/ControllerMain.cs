@@ -52,10 +52,11 @@ public class ControllerMain : MonoBehaviour
     private IEnumerator startNext()
     {
         Debug.Log("waiting");
+        
         yield return new WaitForSeconds(1f);
         duckInstance.transform.position = duckSpawn;
         scoreText.text = score + "";
-        fade.SetActive(false);
+        
         spawnFarmers(score + 1);
     }
 
