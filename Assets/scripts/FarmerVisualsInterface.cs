@@ -11,7 +11,8 @@ public class FarmerVisualsInterface : MonoBehaviour
     {
         BASE, // not intended for use
         RIFLE,
-        SHOTGUN
+        SHOTGUN,
+        SMG
     }
 
     public Transform duck;
