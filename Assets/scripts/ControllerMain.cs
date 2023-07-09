@@ -19,6 +19,7 @@ public class ControllerMain : MonoBehaviour
     private Canvas UiInstance;
     private GameObject duckInstance;
     private int score;
+    private float difficulty;
     private TextMeshProUGUI scoreText;
     private TextMeshProUGUI scoreTextEnd;
     private GameObject menu;
@@ -138,9 +139,10 @@ public class ControllerMain : MonoBehaviour
         reset?.Invoke();
         duckInstance.transform.position = duckSpawn;
         scoreText.text = score + "";
-        spawnFarmers(score + 1);
+        difficulty = score * (Mathf.Pow(0.9f, score));
+        spawnFarmers(difficulty + 1);
         disableFarmers();
-        music.pitch = 1 + 0.0025f * score;
+        music.pitch = 1 + 0.0025f * difficulty;
         yield return new WaitForSeconds(1f);
         enableFarmers();
         fade.SetActive(false);
