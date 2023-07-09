@@ -7,13 +7,14 @@ public class Muzzleflash : MonoBehaviour
     public float length;
 
     private Light flash;
-    private LensFlare flare;
+    //private LensFlare flare;
+    private SpriteRenderer flare;
     private float timer = 0.15f;
 
     void Start()
     {
         flash = GetComponent<Light>();
-        flare = GetComponent<LensFlare>();
+        flare = GetComponent<SpriteRenderer>();
     }
 
     void Update()
