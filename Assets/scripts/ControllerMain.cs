@@ -112,9 +112,10 @@ public class ControllerMain : MonoBehaviour
 
     private void duckFall()
     {
+        music.Stop();
         border.SetActive(false);
         Debug.Log("still brokey");
-        //disableFarmers();
+        disableFarmers();
     }
 
     private void levelComplete()
@@ -155,7 +156,7 @@ public class ControllerMain : MonoBehaviour
         killFarmers();
         pauseButton.Disable();
         reset?.Invoke();
-        music.Stop();
+        
 
 
     }
