@@ -24,6 +24,7 @@ public class Bulllet : MonoBehaviour
         transform.LookAt(target);
         dir = target - pos;
         dir = dir.normalized;
+        Debug.DrawRay(this.transform.position,10 *dir,Color.red,3f);
     }
 
     // Update is called once per frame
