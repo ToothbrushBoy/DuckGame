@@ -297,6 +297,7 @@ public class ControllerMain : MonoBehaviour
         killFarmers();
         reset?.Invoke();
         music.Stop();
+        pauseButton.Disable();
     }
 
     public void openOptionsMenu()
