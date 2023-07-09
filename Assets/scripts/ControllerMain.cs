@@ -196,6 +196,7 @@ public class ControllerMain : MonoBehaviour
 
     private void spawnFarmers(float difficulty)
     {
+        difficulty += 10;
         ArrayList used = new ArrayList();
         farmers = new ArrayList();
         int place;

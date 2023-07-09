@@ -326,7 +326,7 @@ MonoBehaviour:
   duck: {fileID: 0}
   muzzle: {fileID: 4402902772720846048}
   gun: {fileID: 557121051921919793}
-  jacket: 0
+  jacket: 2
   skinnedMeshRenderer: {fileID: 7036542206150261349}
   aimTarget: {fileID: 6606897697284765049}
 --- !u!1 &6697810762043122287

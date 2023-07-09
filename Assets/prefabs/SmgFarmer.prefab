@@ -67,10 +67,10 @@ MonoBehaviour:
   shootingTimer: 0
   defaultBulletSpeed: 2
   bulletScale: 0.5
-  spread: 10
+  spread: 200
   pellets: 10
   target: {x: 0, y: 0}
-  duration: 1
+  duration: 2
   reloadTime: 1
 --- !u!1001 &2645179327287897550
 PrefabInstance:
@@ -83,7 +83,7 @@ PrefabInstance:
     - target: {fileID: 3742572446138749532, guid: 9d8de5b5aad0cc4498af454c204ccf91,
         type: 3}
       propertyPath: jacket
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5928409933963380602, guid: 9d8de5b5aad0cc4498af454c204ccf91,
         type: 3}
