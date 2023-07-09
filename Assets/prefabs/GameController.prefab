@@ -54,7 +54,7 @@ MonoBehaviour:
   farmerShotgun: {fileID: 7379398964991517416, guid: 35e77dfecfbf2cf43ad2203ed741f63d,
     type: 3}
   duckSpawnPoint: {fileID: 2385202226885471649}
-  UI: {fileID: 5518744104806000564, guid: 208570407b6466d439a9375f1e48bcd1, type: 3}
+  UI: {fileID: 4472170901646147490, guid: 208570407b6466d439a9375f1e48bcd1, type: 3}
   spawnParent: {fileID: 7024841254319637722}
   farmerTypes:
   - {fileID: 2987817137406809233, guid: 64cfcc133cadb2c46913c6d54df1b26b, type: 3}
