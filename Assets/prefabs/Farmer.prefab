@@ -75,6 +75,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5444232992112552490}
     m_Modifications:
+    - target: {fileID: 2737428359169899934, guid: 9d8de5b5aad0cc4498af454c204ccf91,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3742572446138749532, guid: 9d8de5b5aad0cc4498af454c204ccf91,
         type: 3}
       propertyPath: jacket
