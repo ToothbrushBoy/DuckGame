@@ -16,6 +16,9 @@ public class duckEvents : MonoBehaviour
 
     public delegate void LevelComplete();
     public static event LevelComplete levelComplete;
+
+    public AudioSource hitSfx;
+    public AudioSource fallSfx;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,12 +51,14 @@ public class duckEvents : MonoBehaviour
     IEnumerator hitCo()
     {
         hit?.Invoke();
+        hitSfx.Play();
         yield return new WaitForSeconds(1.5f);
         _fall();
     }
 
     void _fall()
     {
+        fallSfx.Play();
         fall?.Invoke();
         dead = true;
         //death?.Invoke();

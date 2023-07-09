@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2570af9302035cd4fa1fa1fbe58ff238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duck: {fileID: 4896973818957571844, guid: f3096aadfeb874340abef93b0f93a12b, type: 3}
+  duck: {fileID: 2412804030788663238, guid: f3096aadfeb874340abef93b0f93a12b, type: 3}
   farmer: {fileID: 2987817137406809233, guid: 64cfcc133cadb2c46913c6d54df1b26b, type: 3}
   farmerShotgun: {fileID: 7379398964991517416, guid: 35e77dfecfbf2cf43ad2203ed741f63d,
     type: 3}
