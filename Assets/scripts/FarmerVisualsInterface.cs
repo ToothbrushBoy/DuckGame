@@ -21,6 +21,7 @@ public class FarmerVisualsInterface : MonoBehaviour
     public GunUpdate gun;
     [SerializeField] public Jacket jacket;
     public SkinnedMeshRenderer skinnedMeshRenderer;
+    public Muzzleflash muzzleFlash;
 
     public Transform aimTarget;
     private float diff, timer = 0f;
