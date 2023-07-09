@@ -52,7 +52,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duck: {fileID: 7963621796340109643, guid: f3096aadfeb874340abef93b0f93a12b, type: 3}
   farmer: {fileID: 5157414391694586902, guid: 64cfcc133cadb2c46913c6d54df1b26b, type: 3}
-  farmerShotgun: {fileID: 2609243526462596629, guid: 35e77dfecfbf2cf43ad2203ed741f63d,
+  farmerShotgun: {fileID: 9209118651868694720, guid: de9d0f87dcf02e34e987d159203f70ca,
+    type: 3}
+  farmerSmg: {fileID: 9209118651868694720, guid: de9d0f87dcf02e34e987d159203f70ca,
     type: 3}
   duckSpawnPoint: {fileID: 2385202226885471649}
   UI: {fileID: 6769852252856262563, guid: 208570407b6466d439a9375f1e48bcd1, type: 3}
@@ -60,6 +62,7 @@ MonoBehaviour:
   farmerTypes:
   - {fileID: 5157414391694586902, guid: 64cfcc133cadb2c46913c6d54df1b26b, type: 3}
   - {fileID: 2609243526462596629, guid: 35e77dfecfbf2cf43ad2203ed741f63d, type: 3}
+  - {fileID: 9209118651868694720, guid: de9d0f87dcf02e34e987d159203f70ca, type: 3}
   music: {fileID: 2164278148166294582}
 --- !u!1 &611965269887827303
 GameObject:

@@ -40,7 +40,7 @@ public class FarmerVisualsInterface : MonoBehaviour
     public void SetJacket(Jacket j)
     {
         jacket = j;
-        skinnedMeshRenderer.material = skinnedMeshRenderer.materials[(int)j];
+        skinnedMeshRenderer.material = skinnedMeshRenderer.materials[2];
     }
 
     private void Start()

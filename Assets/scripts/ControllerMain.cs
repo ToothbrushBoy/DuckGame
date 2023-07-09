@@ -13,6 +13,7 @@ public class ControllerMain : MonoBehaviour
     public GameObject duck;
     public GameObject farmer;
     public GameObject farmerShotgun;
+    public GameObject farmerSmg;
     public GameObject duckSpawnPoint;
     public Canvas UI;
     private Canvas UiInstance;
@@ -195,6 +196,7 @@ public class ControllerMain : MonoBehaviour
 
     private void spawnFarmers(float difficulty)
     {
+        difficulty += 10;
         ArrayList used = new ArrayList();
         farmers = new ArrayList();
         int place;
