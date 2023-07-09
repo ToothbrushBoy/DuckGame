@@ -7,20 +7,11 @@ using UnityEngine;
 
 public class FarmerVisualsInterface : MonoBehaviour
 {
-    public enum Jacket
-    {
-        BASE, // not intended for use
-        RIFLE,
-        SHOTGUN,
-        SMG
-    }
 
     public Transform duck;
 
     public Transform muzzle;
     public GunUpdate gun;
-    [SerializeField] public Jacket jacket;
-    public SkinnedMeshRenderer skinnedMeshRenderer;
     public Muzzleflash muzzleFlash;
 
     public Transform aimTarget;
@@ -37,15 +28,9 @@ public class FarmerVisualsInterface : MonoBehaviour
         return muzzle;
     }
 
-    public void SetJacket(Jacket j)
-    {
-        jacket = j;
-        skinnedMeshRenderer.material = skinnedMeshRenderer.materials[2];
-    }
-
     private void Start()
     {
-        SetJacket(jacket);
+
     }
 
     private void Update()
