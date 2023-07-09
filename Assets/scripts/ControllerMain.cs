@@ -252,6 +252,12 @@ public class ControllerMain : MonoBehaviour
                 fs.enabled = false;
             }
 
+            var fsmg = farmerInstance.GetComponent<SMGFarmer>();
+            if (fsmg != null)
+            {
+                fsmg.enabled = false;
+            }
+
         }
     }
 
@@ -269,6 +275,12 @@ public class ControllerMain : MonoBehaviour
             if (fs != null)
             {
                 fs.enabled = true;
+            }
+
+            var fsmg = farmerInstance.GetComponent<SMGFarmer>();
+            if (fsmg != null)
+            {
+                fsmg.enabled = false;
             }
 
         }
