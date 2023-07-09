@@ -90,6 +90,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Farmer-Visuals
       objectReference: {fileID: 0}
+    - target: {fileID: 7036542206150261349, guid: 9d8de5b5aad0cc4498af454c204ccf91,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036542206150261349, guid: 9d8de5b5aad0cc4498af454c204ccf91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7f748e7cb301a941985c160faef8e1f, type: 2}
     - target: {fileID: 9170572268073478392, guid: 9d8de5b5aad0cc4498af454c204ccf91,
         type: 3}
       propertyPath: m_RootOrder
