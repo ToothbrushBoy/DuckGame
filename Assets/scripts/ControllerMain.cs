@@ -122,7 +122,7 @@ public class ControllerMain : MonoBehaviour
     private void levelComplete()
     {
         fade.SetActive(true);
-        duck.GetComponent<CircleCollider2D>().enabled = false;
+        duckInstance.GetComponent<CircleCollider2D>().enabled = false;
         StartCoroutine(startNext());
 
     }
@@ -143,7 +143,7 @@ public class ControllerMain : MonoBehaviour
         yield return new WaitForSeconds(1f);
         enableFarmers();
         fade.SetActive(false);
-        duck.GetComponent<CircleCollider2D>().enabled = true;
+        duckInstance.GetComponent<CircleCollider2D>().enabled = true;
     }
 
     private void playerDied()
@@ -196,7 +196,6 @@ public class ControllerMain : MonoBehaviour
 
     private void spawnFarmers(float difficulty)
     {
-        difficulty += 10;
         ArrayList used = new ArrayList();
         farmers = new ArrayList();
         int place;
@@ -280,7 +279,7 @@ public class ControllerMain : MonoBehaviour
             var fsmg = farmerInstance.GetComponent<SMGFarmer>();
             if (fsmg != null)
             {
-                fsmg.enabled = false;
+                fsmg.enabled = true;
             }
 
         }

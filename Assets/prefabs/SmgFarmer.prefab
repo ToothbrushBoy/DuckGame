@@ -67,7 +67,7 @@ MonoBehaviour:
   shootingTimer: 0
   defaultBulletSpeed: 2
   bulletScale: 0.5
-  spread: 200
+  spread: 30
   pellets: 10
   target: {x: 0, y: 0}
   duration: 2
