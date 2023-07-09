@@ -139,7 +139,7 @@ public class ControllerMain : MonoBehaviour
         reset?.Invoke();
         duckInstance.transform.position = duckSpawn;
         scoreText.text = score + "";
-        difficulty = score * (Mathf.Pow(0.9f, score));
+        difficulty = score * (0.5f + (Mathf.Pow(0.9f, score) * 0.5f));
         spawnFarmers(difficulty + 1);
         disableFarmers();
         music.pitch = 1 + 0.0025f * difficulty;
