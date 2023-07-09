@@ -45,6 +45,7 @@ public class Farmer : MonoBehaviour
 
     void fire()
     {
+        GetComponentInChildren<FarmerVisualsInterface>().muzzleFlash.Play();
         spawnBullet();
     }
 
