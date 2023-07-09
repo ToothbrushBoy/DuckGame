@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17768531b2292144cb72e48dc74c3ad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 4281583180962296899, guid: 450b403922f734b45ad611cd0ec6e242, type: 3}
+  bullet: {fileID: 2074308336745976797, guid: b01a9ab10a1ccbf47b21464901074c98, type: 3}
   duck: {fileID: 0}
   defaultFireRate: 1
   bulletSpawn: {fileID: 5258467642383681050}

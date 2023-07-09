@@ -35,6 +35,7 @@ public class ControllerMain : MonoBehaviour
     private InputAction pauseButton;
     private bool paused;
     public AudioSource music;
+    private GameObject border;
 
     //public delegate void FarmerTick();
     //public static event FarmerTick farmerTick;
@@ -60,6 +61,7 @@ public class ControllerMain : MonoBehaviour
         optionsMenu = UiInstance.transform.GetChild(4).gameObject;
         farmers = new ArrayList();
         paused = false;
+        border = GameObject.FindGameObjectsWithTag("Border")[0];
 
         //not working :/
         //StartCoroutine(farmer_tick());
@@ -110,6 +112,8 @@ public class ControllerMain : MonoBehaviour
 
     private void duckFall()
     {
+        music.Stop();
+        border.SetActive(false);
         Debug.Log("still brokey");
         disableFarmers();
     }
@@ -117,7 +121,7 @@ public class ControllerMain : MonoBehaviour
     private void levelComplete()
     {
         fade.SetActive(true);
-        
+        duck.GetComponent<CircleCollider2D>().enabled = false;
         StartCoroutine(startNext());
 
     }
@@ -126,7 +130,7 @@ public class ControllerMain : MonoBehaviour
     {
         Debug.Log("waiting");
         score++;
-        duck.GetComponent<CircleCollider2D>().enabled = false;
+        
         disableFarmers();
         yield return new WaitForSeconds(1f);
         killFarmers();
@@ -152,7 +156,7 @@ public class ControllerMain : MonoBehaviour
         killFarmers();
         pauseButton.Disable();
         reset?.Invoke();
-        music.Stop();
+        
 
 
     }
@@ -172,6 +176,7 @@ public class ControllerMain : MonoBehaviour
     public void startGame()
     {
         score = 0;
+        border.SetActive(true);
         Time.timeScale = 1;
         scoreText.text = score + "";
         duckEvents.hit -= duckFall;
