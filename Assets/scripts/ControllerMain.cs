@@ -140,6 +140,7 @@ public class ControllerMain : MonoBehaviour
         scoreText.text = score + "";
         spawnFarmers(score + 1);
         disableFarmers();
+        music.pitch = 1 + 0.0025f * score;
         yield return new WaitForSeconds(1f);
         enableFarmers();
         fade.SetActive(false);
