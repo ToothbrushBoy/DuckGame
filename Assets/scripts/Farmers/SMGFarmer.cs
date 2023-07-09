@@ -78,6 +78,7 @@ public class SMGFarmer : MonoBehaviour
 
     void fire()
     {
+        GetComponentInChildren<FarmerVisualsInterface>().muzzleFlash.Play();
         spawnBullet(Random.Range(-spread, spread));
     }
 

@@ -47,6 +47,7 @@ public class ShotgunFarmer : MonoBehaviour
 
     void fire()
     {
+        GetComponentInChildren<FarmerVisualsInterface>().muzzleFlash.Play();
         Debug.Log("inital angle multiplier" + (pellets / 2 - 0.5f));
         float angle = -spread * (pellets / 2 - 0.5f);
         for(int i = 0; i < pellets; i++)
