@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97209f4d092991c4baaf231850c417b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedCap: 4
+  speedCap: 3
   acc: 2
   rb: {fileID: 298835349352571552}
   animator: {fileID: 7790462879717457577}

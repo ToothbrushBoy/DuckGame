@@ -14,7 +14,7 @@ public class ShotgunFarmer : MonoBehaviour
     public float defaultBulletSpeed;
     public float bulletScale;
     public float spread;
-    public int pellets;
+    public float pellets;
     List<GameObject> bullets;
     private float scaling;
     // Start is called before the first frame update
@@ -47,9 +47,11 @@ public class ShotgunFarmer : MonoBehaviour
 
     void fire()
     {
+        Debug.Log("inital angle multiplier" + (pellets / 2 - 0.5f));
         float angle = -spread * (pellets / 2 - 0.5f);
         for(int i = 0; i < pellets; i++)
         {
+            Debug.Log("ANGLES:  " + angle);
             spawnBullet(angle);
             angle += spread;
         }
@@ -57,10 +59,14 @@ public class ShotgunFarmer : MonoBehaviour
     }
 
     void spawnBullet(float angle)
-    { 
+    {
+        var towardDuck = (duck.transform.position - bulletSpawn.transform.position) / bulletSpeed;
+        var whereDuckGoin = duck.transform.position + (Vector3)duck.GetComponent<Rigidbody2D>().velocity;
+        var target = towardDuck + whereDuckGoin;
+
         GameObject firedBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);
         firedBullet.GetComponent<Bulllet>().rot = Quaternion.AngleAxis(angle, Vector3.forward);
-        firedBullet.GetComponent<Bulllet>().target = duck.transform.position;
+        firedBullet.GetComponent<Bulllet>().target = target;
         firedBullet.GetComponent<Bulllet>().defaultSpeed = bulletSpeed;
         firedBullet.transform.localScale = new Vector3(1, 1, 1) * bulletScale;
     }

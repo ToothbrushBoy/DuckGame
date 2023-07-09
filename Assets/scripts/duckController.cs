@@ -50,7 +50,7 @@ public class duckController : MonoBehaviour
         if (!hit)
         {
             moveDir = move.ReadValue<Vector2>();
-            rb.AddForce(moveDir * acc);
+            rb.velocity = moveDir.normalized * speedCap;
             if (rb.velocity.magnitude > speedCap)
             {
                 rb.velocity = moveDir * speedCap;
