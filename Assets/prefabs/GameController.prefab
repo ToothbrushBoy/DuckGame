@@ -49,16 +49,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2570af9302035cd4fa1fa1fbe58ff238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duck: {fileID: 2412804030788663238, guid: f3096aadfeb874340abef93b0f93a12b, type: 3}
-  farmer: {fileID: 2987817137406809233, guid: 64cfcc133cadb2c46913c6d54df1b26b, type: 3}
-  farmerShotgun: {fileID: 7379398964991517416, guid: 35e77dfecfbf2cf43ad2203ed741f63d,
+  duck: {fileID: 7963621796340109643, guid: f3096aadfeb874340abef93b0f93a12b, type: 3}
+  farmer: {fileID: 5157414391694586902, guid: 64cfcc133cadb2c46913c6d54df1b26b, type: 3}
+  farmerShotgun: {fileID: 2609243526462596629, guid: 35e77dfecfbf2cf43ad2203ed741f63d,
     type: 3}
   duckSpawnPoint: {fileID: 2385202226885471649}
-  UI: {fileID: 5518744104806000564, guid: 208570407b6466d439a9375f1e48bcd1, type: 3}
+  UI: {fileID: 4472170901646147490, guid: 208570407b6466d439a9375f1e48bcd1, type: 3}
   spawnParent: {fileID: 7024841254319637722}
   farmerTypes:
-  - {fileID: 2987817137406809233, guid: 64cfcc133cadb2c46913c6d54df1b26b, type: 3}
-  - {fileID: 7379398964991517416, guid: 35e77dfecfbf2cf43ad2203ed741f63d, type: 3}
+  - {fileID: 5157414391694586902, guid: 64cfcc133cadb2c46913c6d54df1b26b, type: 3}
+  - {fileID: 2609243526462596629, guid: 35e77dfecfbf2cf43ad2203ed741f63d, type: 3}
   music: {fileID: 2164278148166294582}
 --- !u!1 &611965269887827303
 GameObject:
