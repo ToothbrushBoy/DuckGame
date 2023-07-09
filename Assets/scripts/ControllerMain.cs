@@ -13,6 +13,7 @@ public class ControllerMain : MonoBehaviour
     public GameObject duck;
     public GameObject farmer;
     public GameObject farmerShotgun;
+    public GameObject farmerSmg;
     public GameObject duckSpawnPoint;
     public Canvas UI;
     private Canvas UiInstance;
