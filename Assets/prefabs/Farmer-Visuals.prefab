@@ -326,6 +326,7 @@ MonoBehaviour:
   duck: {fileID: 0}
   muzzle: {fileID: 4402902772720846048}
   gun: {fileID: 557121051921919793}
+  jacket: 0
   skinnedMeshRenderer: {fileID: 7036542206150261349}
   aimTarget: {fileID: 6606897697284765049}
 --- !u!1 &6697810762043122287
@@ -763,7 +764,7 @@ PrefabInstance:
     - target: {fileID: 102619987078012708, guid: 09ef17e95054a1f43972739c4d629cd3,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 102619987078012708, guid: 09ef17e95054a1f43972739c4d629cd3,
         type: 3}
@@ -780,6 +781,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 131eb89fd6ce0ad48a145ce2ca6dde6c, type: 2}
+    - target: {fileID: 102619987078012708, guid: 09ef17e95054a1f43972739c4d629cd3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7f748e7cb301a941985c160faef8e1f, type: 2}
     - target: {fileID: 919132149155446097, guid: 09ef17e95054a1f43972739c4d629cd3,
         type: 3}
       propertyPath: m_Name
