@@ -30,12 +30,13 @@ public class Bulllet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(dir * currentSpeed);
+        /*rb.AddForce(dir * currentSpeed * 2);
         if (rb.velocity.magnitude > currentSpeed)
         {
             rb.velocity = dir * currentSpeed;
             
-        }
+        }*/
+        rb.velocity = dir * currentSpeed;
 
     }
 
