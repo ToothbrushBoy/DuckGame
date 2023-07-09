@@ -51,7 +51,9 @@ public class duckEvents : MonoBehaviour
     IEnumerator hitCo()
     {
         hit?.Invoke();
+        fallSfx.Pause();
         hitSfx.Play();
+
         yield return new WaitForSeconds(1.5f);
         _fall();
     }
