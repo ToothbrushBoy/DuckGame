@@ -51,8 +51,14 @@ public class Farmer : MonoBehaviour
 
     void spawnBullet()
     {
-        var towardDuck = (duck.transform.position - bulletSpawn.transform.position) / bulletSpeed;
-        var whereDuckGoin = duck.transform.position + (Vector3)duck.GetComponent<Rigidbody2D>().velocity;
+        var towardDuck = (Vector2)(duck.transform.position - bulletSpawn.transform.position);
+        
+        var distance = towardDuck.magnitude;
+        Debug.Log("distance: " + distance);
+        var time = distance / bulletSpeed;
+        Debug.Log("time: " + time);
+        var duckVelo = duck.GetComponent<Rigidbody2D>().velocity * time * 1.2f;
+        var whereDuckGoin = (Vector2)duck.transform.position + duckVelo;
         var target = towardDuck + whereDuckGoin;
 
 
