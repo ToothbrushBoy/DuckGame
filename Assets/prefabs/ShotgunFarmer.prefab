@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 2074308336745976797, guid: b01a9ab10a1ccbf47b21464901074c98, type: 3}
   duck: {fileID: 0}
-  defaultFireRate: 1
+  defaultFireRate: 2
   bulletSpawn: {fileID: 5258467642383681050}
   timer: 0
   defaultBulletSpeed: 4

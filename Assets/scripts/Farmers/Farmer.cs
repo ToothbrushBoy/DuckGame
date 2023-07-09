@@ -15,6 +15,8 @@ public class Farmer : MonoBehaviour
     private float bulletSpeed;
     public float bulletScale;
     private float scaling;
+    public Transform aimTarget;
+    private Vector2 target;
     void Start()
     {
         
@@ -22,7 +24,7 @@ public class Farmer : MonoBehaviour
         fireRate = defualtFireRate / scaling;
         var ducks = GameObject.FindGameObjectsWithTag("Player");
         duck = ducks[ducks.Length - 1];
-        GetComponentInChildren<FarmerVisualsInterface>().duck = duck.transform;
+        GetComponentInChildren<FarmerVisualsInterface>().duck = aimTarget;
     }
 
     private void OnEnable()
@@ -41,6 +43,21 @@ public class Farmer : MonoBehaviour
             timer = 0;
             fire();
         }
+
+        var towardDuck = (Vector2)(duck.transform.position - bulletSpawn.transform.position);
+
+        var distance = towardDuck.magnitude;
+        Debug.Log("distance: " + distance);
+        var time = distance / bulletSpeed;
+        Debug.Log("time: " + time);
+        var duckVelo = duck.GetComponent<Rigidbody2D>().velocity * time * 1.2f;
+        var whereDuckGoin = (Vector2)duck.transform.position + duckVelo;
+        target = towardDuck + whereDuckGoin;
+
+        //var target3d = new Vector3(target.x, target.y, duck.transform.position.z);
+
+        aimTarget.position = duck.transform.position + new Vector3(whereDuckGoin.x, whereDuckGoin.y, 0f);
+
     }
 
     void fire()
@@ -51,6 +68,7 @@ public class Farmer : MonoBehaviour
 
     void spawnBullet()
     {
+        /*
         var towardDuck = (Vector2)(duck.transform.position - bulletSpawn.transform.position);
         
         var distance = towardDuck.magnitude;
@@ -60,6 +78,7 @@ public class Farmer : MonoBehaviour
         var duckVelo = duck.GetComponent<Rigidbody2D>().velocity * time * 1.2f;
         var whereDuckGoin = (Vector2)duck.transform.position + duckVelo;
         var target = towardDuck + whereDuckGoin;
+        */
 
 
         GameObject firedBullet = Instantiate(bullet, bulletSpawn.transform.position, Quaternion.identity);

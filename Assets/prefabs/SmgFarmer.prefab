@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f226ccf1096dae458de3bd739e6e5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 3
+  difficulty: 2
   scaling: 1
 --- !u!114 &3368816688429595140
 MonoBehaviour:
@@ -65,7 +65,7 @@ MonoBehaviour:
   defaultFireRate: 0.1
   bulletSpawn: {fileID: 8666887158493990817}
   shootingTimer: 0
-  defaultBulletSpeed: 2
+  defaultBulletSpeed: 3
   bulletScale: 0.5
   spread: 30
   pellets: 10
